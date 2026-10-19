@@ -473,6 +473,62 @@ body { background: var(--bg); color: var(--fg); }
 .wa:hover span { max-width: 160px; padding-right: 8px; }
 .boot-on .wa, .masthead.menu-open ~ .wa { opacity: 0; pointer-events: none; }
 
+/* ---------------------------------------------------------------- FAQ: one block per business, each answer opens in place */
+.faq { padding-bottom: var(--sp-section); }
+.faq__group { align-items: start; margin-bottom: var(--sp-block); }
+.faq__title { grid-column: 1 / 5; position: sticky; top: calc(var(--header-h) + 24px); }
+.faq__list { grid-column: 5 / 13; display: grid; gap: 8px; }
+.qa { background: var(--bg-2); }
+.qa summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 24px;
+    font: 500 1.0625rem/1.4 var(--sans);
+    color: var(--fg);
+    list-style: none;
+    cursor: pointer;
+}
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary::after { content: "+"; flex: none; font: 400 1.625rem/1 var(--sans); color: var(--gold); transition: transform 0.35s var(--ease); }
+.qa[open] summary::after { transform: rotate(45deg); }
+.qa summary:hover { color: #fff; }
+.qa__a { padding: 0 24px 22px; }
+.qa__a p { max-width: 68ch; font-size: 1rem; line-height: 1.7; color: var(--fg-2); }
+.qa__a a { color: var(--fg); border-bottom: 1px solid var(--rule-strong); }
+.faq__more {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px 48px;
+    padding: clamp(28px, 4vw, 56px);
+    background: var(--bg-3);
+}
+.faq__more p { margin-top: 10px; color: var(--fg-2); }
+.faq__more .faq__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin: 0; }
+
+/* ---------------------------------------------------------------- legal pages: a contents list beside the text */
+.doc { padding: calc(var(--header-h) + clamp(40px, 6vw, 96px)) 0 var(--sp-section); }
+.doc__head { grid-column: 1 / -1; margin-bottom: var(--sp-block); }
+.doc__date { margin-top: 18px; font-size: 0.875rem; color: var(--fg-3); }
+.doc__intro { max-width: 52ch; margin-top: 14px; font-size: 1.125rem; line-height: 1.6; color: var(--fg-2); }
+.doc__toc { grid-column: 1 / 4; align-self: start; position: sticky; top: calc(var(--header-h) + 24px); }
+.doc__toc a { display: block; padding: 6px 0; font-size: 0.875rem; color: var(--fg-3); transition: color 0.3s var(--ease); }
+.doc__toc a:hover { color: var(--fg); }
+.doc__body { grid-column: 5 / 12; max-width: 72ch; }
+.doc__body section { scroll-margin-top: calc(var(--header-h) + 24px); }
+.doc__body section + section { margin-top: 44px; }
+.doc__body h2 { margin-bottom: 14px; }
+.doc__body p, .doc__body li { font-size: 1.0625rem; line-height: 1.75; color: var(--fg-2); }
+.doc__body p + p, .doc__body p + ul, .doc__body ul + p { margin-top: 12px; }
+.doc__body ul { padding-left: 1.2em; list-style: disc; }
+.doc__body li + li { margin-top: 6px; }
+.doc__body a { color: var(--fg); border-bottom: 1px solid var(--rule-strong); }
+.footer__legal a[aria-current="page"] { color: var(--fg); }
+
 /* ---------------------------------------------------------------- responsive */
 @media (max-width: 1240px) {
     .mh-phone { display: none; }
@@ -512,6 +568,17 @@ body { background: var(--bg); color: var(--fg); }
 @media (max-width: 560px) {
     .cf--2, .cf--3 { grid-column: 1 / -1; }
 }
+
+@media (max-width: 860px) {
+    .faq__title, .faq__list { grid-column: 1 / -1; }
+    .faq__title { position: static; margin-bottom: 14px; }
+    .qa summary { padding: 18px 18px; font-size: 1rem; }
+    .qa__a { padding: 0 18px 20px; }
+    .doc__toc { display: none; }
+    .doc__body { grid-column: 1 / -1; }
+}
+/* Four links in the phone menu: a little smaller so CONTACT fits */
+.mobile-menu .mm-links a { font-size: calc(1.125rem * var(--ds)); }
 
 /* Small phones: the name and the menu button share one narrow bar */
 @media (max-width: 360px) {

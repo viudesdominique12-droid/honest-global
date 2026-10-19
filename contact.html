@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'sha256-8g7AUx6iHuuqdCCaOLZ6MwOuHN6ssKJ6b44lHkgYfto='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-src 'none'; object-src 'none'; base-uri 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#17325A">
 <title>Contact · Honest Global PLC</title>
 <meta name="description" content="Contact Honest Global PLC in Addis Ababa: product sourcing, coffee exports, Honest Oil, luxury automobiles and partnerships.">
@@ -28,7 +30,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap">
 <link rel="stylesheet" href="assets/css/style.css?v=18">
 <link rel="stylesheet" href="assets/css/pages.css?v=18">
-<link rel="stylesheet" href="assets/css/theme.css?v=22">
+<link rel="stylesheet" href="assets/css/theme.css?v=23">
 <link rel="stylesheet" href="assets/css/type.css?v=21">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Honest Global PLC","url":"https://viudesdominique12-droid.github.io/honest-global/","logo":"https://viudesdominique12-droid.github.io/honest-global/assets/images/brand/cannon.webp","email":"info@ethiopianfilmoffice.com","telephone":"+251911204388","address":{"@type":"PostalAddress","streetAddress":"Finfine Building, 5th Floor, in front of Meskel Square","addressLocality":"Addis Ababa","addressCountry":"ET"}}</script>
 </head>
@@ -74,6 +76,7 @@
         <ul class="mm-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
             <li><a href="contact.html" aria-current="page">Contact</a></li>
         </ul>
         <div class="mm-contact">
@@ -155,33 +158,33 @@
                     </div>
                     <div class="field">
                         <label for="ct-name">Full name<span class="req" aria-hidden="true">*</span></label>
-                        <input id="ct-name" name="name" type="text" required autocomplete="name">
+                        <input maxlength="200" id="ct-name" name="name" type="text" required autocomplete="name">
                     </div>
                     <div class="field">
                         <label for="ct-company">Company</label>
-                        <input id="ct-company" name="company" type="text" autocomplete="organization">
+                        <input maxlength="200" id="ct-company" name="company" type="text" autocomplete="organization">
                     </div>
                     <div class="field">
                         <label for="ct-email">Email<span class="req" aria-hidden="true">*</span></label>
-                        <input id="ct-email" name="email" type="email" required autocomplete="email">
+                        <input maxlength="200" id="ct-email" name="email" type="email" required autocomplete="email">
                     </div>
                     <div class="field">
                         <label for="ct-phone">Phone</label>
-                        <input id="ct-phone" name="phone" type="tel" autocomplete="tel">
+                        <input maxlength="200" id="ct-phone" name="phone" type="tel" autocomplete="tel">
                     </div>
                     <div class="field field--full">
                         <label for="ct-country">Country</label>
-                        <input id="ct-country" name="country" type="text" autocomplete="country-name">
+                        <input maxlength="200" id="ct-country" name="country" type="text" autocomplete="country-name">
                     </div>
                     <div class="field field--full">
                         <label for="ct-message">Message<span class="req" aria-hidden="true">*</span></label>
-                        <textarea id="ct-message" name="message" required></textarea>
+                        <textarea maxlength="5000" id="ct-message" name="message" required></textarea>
                     </div>
                     <label class="consent">
                         <input type="checkbox" name="consent" value="yes" required>
                         <span>I agree that Honest Global PLC may use these details to respond to my enquiry.<span class="req" aria-hidden="true">*</span></span>
                     </label>
-                    <div class="hp" aria-hidden="true"><label for="ct-website">Website</label><input id="ct-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+                    <div class="hp" aria-hidden="true"><label for="ct-website">Website</label><input maxlength="200" id="ct-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
                     <div class="form__foot">
                         <button class="btn-solid" type="submit">Start a conversation<span class="arr" aria-hidden="true">→</span></button>
                         <p class="form__note">Fields marked * are required.</p>
@@ -226,6 +229,7 @@
         <nav class="footer__col footer__col--group" aria-label="Group">
             <h3>Group</h3>
             <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
             <a href="contact.html">Contact</a>
         </nav>
         <nav class="footer__col footer__col--biz" aria-label="Businesses">
@@ -251,20 +255,20 @@
     <div class="grid footer__bottom">
         <p>© <span data-year>2026</span> Honest Global PLC</p>
         <p>Products are available for sourcing on request, subject to availability and applicable import regulations. Placeholder photography from Unsplash.</p>
-        <p class="footer__legal"><a href="#">Privacy</a><a href="#">Terms</a></p>
+        <p class="footer__legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></p>
     </div>
 </footer>
 
 <a class="wa" href="https://wa.me/251911204388" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.6 3 15.6c0 2.5.8 4.9 2.1 6.9L3.6 29l6.7-1.7c1.7.9 3.6 1.4 5.7 1.4 7.2 0 13-5.6 13-12.6S23.2 3 16 3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12.1 9.6c-.3-.7-.6-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 3.9 1.7 4.2c.2.3 2.8 4.5 7 6.1 3.5 1.4 4.2 1.1 4.9 1 .8-.1 2.4-1 2.8-2 .3-1 .3-1.8.2-2-.1-.2-.4-.3-.8-.5s-2.4-1.2-2.8-1.3c-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.6-.2.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.8-2.2-1.2-3z" fill="currentColor"/></svg><span>WhatsApp</span></a>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-array@3.2.4/dist/d3-array.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-geo@3.1.1/dist/d3-geo.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" integrity="sha384-HOvlOYPIs/zjoIkWUGXkVmXsjr8GuZLV+Q+rcPwmJOVZVpvTSXQChiN4t9Euv9Vc" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" integrity="sha384-P8VzCVnT9NBUkMrpcIZrJbA7EBjJvh/fJS6PmP+4nLIM284DtsImIv8D0fFjIkeh" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" integrity="sha384-xb96EMJeax+NLXMC88ZBa1xAeAW+kn+horHh/zFlbMLG2UPWhMJJSlv7fi57hS+Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js" integrity="sha384-FKTX0CNJ8ngN1oGMBReVu7mvjTJyjFiD5etb1NKnYxc+8eFI2O0KWnksTN+oTFcu" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-array@3.2.4/dist/d3-array.min.js" integrity="sha384-VpKMdU+TlpggHFip46tJ/xkFUs8NFBwLqUMo3+3uiu411lU6eUQYsHVU+JFpA5ja" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-geo@3.1.1/dist/d3-geo.min.js" integrity="sha384-VNiKRUXp0MmglFfqDwkfuk+Y78C3WTJShdKSaFwOacLR3UmamxHIJLBTD3BadIXD" crossorigin="anonymous"></script>
 <script src="assets/js/land.js?v=18"></script>
-<script src="assets/js/config.js?v=18"></script>
+<script src="assets/js/config.js?v=19"></script>
 <script src="assets/js/engraving.js?v=18"></script>
 <script src="assets/js/site.js?v=21"></script>
 <script src="assets/js/main.js?v=21"></script>
