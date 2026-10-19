@@ -736,10 +736,19 @@
         }
     }
 
+    /* A page may bring its own opening and scenes (see home.js) */
+    var page = window.HG_PAGE || null;
+    var pageApi = {
+        $: $, $$: $$, EASE: EASE, lenis: lenis, headerH: headerH, scrollToEl: scrollToEl,
+        globe: globe, globeEl: globeEl, globeIntro: globeIntro
+    };
+
     fontsReady().then(function () {
-        if (fitEl) homeIntro();
+        if (page && page.intro) page.intro(pageApi);
+        else if (fitEl) homeIntro();
         else openerIntro();
         scrollScenes();
+        if (page && page.scenes) page.scenes(pageApi);
         ScrollTrigger.sort();
         ScrollTrigger.refresh();
         if (window.location.hash) {

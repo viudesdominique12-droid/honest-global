@@ -577,21 +577,10 @@ html.lenis { scroll-behavior: auto; }
 .motion .rule-double,
 .motion .cover__plc,
 .motion .cover__meta p,
-.motion .page-home .masthead__nav,
-.motion .page-home .menu-btn,
 .motion .cover__text .standfirst,
 .motion .cover__links,
 .motion .cover__plate,
 .motion .cover__plate .caption { visibility: hidden; opacity: 0; }
-
-/* On the home page the masthead name appears once the cover title has scrolled past */
-.motion .page-home .masthead__name {
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
-}
-.motion .page-home .masthead.is-docked .masthead__name,
-.motion .page-home .masthead.menu-open .masthead__name { opacity: 1; transform: none; }
 
 /* Page turn: the paper section slides over the last chapter */
 .chapter--turn { position: relative; z-index: 1; }
