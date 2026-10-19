@@ -8,7 +8,7 @@
         return x - Math.floor(x);
     }
 
-    /* ------------------------------------------------ Intro: the mark is drafted, then opens like a lens */
+    /* ------------------------------------------------ Intro: the cannon is revealed, then opens like a lens */
     function boot(A, el, hero) {
         var $ = A.$, $$ = A.$$;
         var html = document.documentElement;
@@ -63,14 +63,15 @@
             .to($$('.hud, .boot__skip', el), { autoAlpha: 1, duration: 0.6, stagger: 0.07, ease: 'none' }, 0.15)
             .to(n, {
                 v: 100, duration: 2.9, ease: 'power1.inOut',
-                onUpdate: function () { count.textContent = window.HG_GEEZ(Math.round(n.v)); }
+                onUpdate: function () { count.textContent = Math.round(n.v); }
             }, 0)
             .fromTo($('.bm-head', el), { attr: { x1: -480, x2: -480 }, opacity: 0.9 }, { attr: { x1: 480, x2: 480 }, duration: 1.9, ease: 'power1.inOut' }, 0.2)
             .to($('.bm-head', el), { opacity: 0, duration: 0.3 }, 1.9)
             .to($$('.bm-rings [pathLength]', el), { strokeDashoffset: 0, duration: 1.3, stagger: 0.12 }, 0.2)
-            .to($('.bm-cannon-line', el), { strokeDashoffset: 0, duration: 1.7, ease: 'power1.inOut' }, 0.45)
-            .to($('.bm-cannon-fill', el), { opacity: 1, duration: 0.9, ease: 'power2.out' }, 1.75)
-            .to($('.bm-cannon-line', el), { opacity: 0, duration: 0.6 }, 2.2)
+            // The cannon is uncovered from left to right, then its orange bar is drawn under it
+            .fromTo($('.bm-logo-wipe', el), { attr: { width: 0 } }, { attr: { width: 180 }, duration: 1.4, ease: 'power2.inOut' }, 0.45)
+            .fromTo($('.bm-logo image', el), { opacity: 0.2 }, { opacity: 1, duration: 1.2, ease: 'power1.out' }, 0.45)
+            .to($('.bm-bar', el), { strokeDashoffset: 0, duration: 0.7, ease: A.EASE }, 1.7)
             .to($$('.bm-callouts [pathLength]', el), { strokeDashoffset: 0, duration: 0.8, stagger: 0.12 }, 1.55)
             .to($$('.bm-dots circle', el), { autoAlpha: 1, duration: 0.3, stagger: 0.12 }, 1.55)
             .fromTo($$('.bm-labels text', el), { autoAlpha: 0, y: 6 }, { autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.12, ease: A.EASE }, 1.9)
@@ -175,7 +176,7 @@
                     floor.style.backgroundPosition = '0 ' + (p * travel * 0.55).toFixed(1) + 'px';
                     if (nearest !== shown) {
                         shown = nearest;
-                        counter.textContent = window.HG_GEEZ(nearest + 1);
+                        counter.textContent = nearest + 1;
                     }
                 }
                 place(0);

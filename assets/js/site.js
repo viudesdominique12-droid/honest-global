@@ -13,18 +13,6 @@
         img.style.backgroundPosition = 'center';
     });
 
-    /* Ethiopic (Ge'ez) numerals for the decorative figures: no zero, tens and units, then a hundreds sign */
-    var ONES = ['', '፩', '፪', '፫', '፬', '፭', '፮', '፯', '፰', '፱'];
-    var TENS = ['', '፲', '፳', '፴', '፵', '፶', '፷', '፸', '፹', '፺'];
-    function geez(n) {
-        n = Math.floor(n);
-        if (n <= 0) return '·';
-        var h = Math.floor(n / 100), r = n % 100;
-        var pair = TENS[Math.floor(r / 10)] + ONES[r % 10];
-        return h ? (h === 1 ? '' : geez(h)) + '፻' + pair : pair;
-    }
-    window.HG_GEEZ = geez;
-
     /* ------------------------------------------------ The opening of a page: the photograph settles, the title rises */
     function heroTimeline(A) {
         var $ = A.$, $$ = A.$$;
@@ -106,9 +94,8 @@
         /* Figures count up from zero */
         $$('[data-count]').forEach(function (el) {
             var to = parseFloat(el.getAttribute('data-count'));
-            var ethiopic = el.getAttribute('lang') === 'am';
-            var show = function (v) { el.textContent = ethiopic ? geez(Math.max(1, Math.round(v))) : Math.round(v); };
-            var n = { v: ethiopic ? 1 : 0 };
+            var show = function (v) { el.textContent = Math.round(v); };
+            var n = { v: 0 };
             show(n.v);
             ScrollTrigger.create({
                 trigger: el,

@@ -138,7 +138,7 @@
         menu.classList.toggle('is-open', open);
         masthead.classList.toggle('menu-open', open);
         menuBtn.setAttribute('aria-expanded', String(open));
-        menuBtn.textContent = open ? 'Close' : 'Menu';
+        menuBtn.setAttribute('aria-label', open ? 'Close the menu' : 'Open the menu');
         document.body.style.overflow = open ? 'hidden' : '';
         if (lenis) { if (open) lenis.stop(); else lenis.start(); }
     }
@@ -163,18 +163,18 @@
             sel.insertBefore(o, sel.querySelector('option[value="other"]'));
         });
     });
-    $$('select[data-marque-select]').forEach(function (sel) {
+    // The marque is typed freely: the listed marques are only suggestions, any other can be requested
+    $$('datalist[data-marque-list]').forEach(function (list) {
+        var seen = {};
         (window.HG_MARQUES || []).forEach(function (g) {
-            var og = document.createElement('optgroup');
-            og.label = g.group;
             g.marques.forEach(function (m) {
-                if (!m.models.length) return;
+                var name = m.name.replace(/ electric$/, '');
+                if (!m.models.length || seen[name]) return;
+                seen[name] = true;
                 var o = document.createElement('option');
-                o.value = m.name;
-                o.textContent = m.name;
-                og.appendChild(o);
+                o.value = name;
+                list.appendChild(o);
             });
-            sel.insertBefore(og, sel.querySelector('option[value="other"]'));
         });
     });
     function preselect(name, value) {
@@ -182,6 +182,12 @@
         $$('select[name="' + name + '"]').forEach(function (sel) {
             var match = $$('option', sel).filter(function (o) { return o.value === value; })[0];
             if (match) sel.value = value;
+        });
+        $$('input[name="' + name + '"][list]').forEach(function (input) {
+            // "other" leaves the field empty, ready for the visitor's own marque
+            var electric = / electric$/.test(value);
+            input.value = value === 'other' ? '' : value.replace(/ electric$/, '');
+            if (electric) preselect('powertrain', 'Electric');
         });
     }
     preselect('sector', param('sector'));

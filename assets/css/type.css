@@ -1,13 +1,11 @@
 /* Honest Global PLC, typography. Loaded last on every page.
    Barlow Condensed for display, DM Sans for text.
    No italics: emphasis is carried by colour.
-   Decorative numbers are Ethiopic (Ge'ez) numerals, set in Noto Sans Ethiopic, narrowed to sit with Barlow Condensed.
-   Practical numbers (telephone, address, quantities, coordinates) stay in Western digits. */
+   Every number is in Western digits, so that visitors from abroad can read it. */
 
 :root {
     --sans: "DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --display: "Barlow Condensed", "Noto Sans Ethiopic", "Arial Narrow", "Helvetica Neue", sans-serif;
-    --geez: "Noto Sans Ethiopic", "Barlow Condensed", sans-serif;
+    --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
     --display-weight: 600;
     --display-track: 0.004em;
     --display-lh: 0.92;
@@ -77,31 +75,19 @@ em, i { font-style: normal; }
     letter-spacing: 0.04em;
     text-transform: uppercase;
 }
-.card__num { font-size: 1.125rem; }
-.hero__kicker b { font-size: 1rem; letter-spacing: 0.06em; }
-.steps__num, .tile__letter { font-size: 1rem; }
-.step__num { font-size: 1.5rem; }
+/* Numbers that label a business, a step or a figure: larger than the words beside them */
+.card__num { font-size: 1.875rem; line-height: 1; }
+.chapter__num, .hero__kicker b { font-size: 1.5rem; line-height: 1; vertical-align: -0.1em; }
+.hero__kicker b { letter-spacing: 0.06em; }
+.bp-num { font-size: 1.125rem; line-height: 1; }
+.tile__letter { font-size: 1rem; }
+.steps__num { font-size: 1.5rem; line-height: 1; }
+.step__num { font-size: 2.5rem; line-height: 1; }
+.cf figcaption b { font-size: 1.5rem; line-height: 1; }
+.hud--bc b, .reel__hud b, .reel__hud span { font-size: 1.375rem; vertical-align: -0.15em; }
 .caption .fig { font-size: 0.9375rem; }
 .sector__letter { font-size: 0.875rem; }
 .sector { font-family: var(--sans); font-size: 1rem; }
-
-/* Ge'ez numerals: narrowed, a touch larger, no tracking (each numeral carries its own rules above and below) */
-[lang="am"] {
-    font-family: var(--geez);
-    font-stretch: 75%;
-    font-weight: 600;
-    letter-spacing: 0;
-    text-transform: none;
-}
-.card__num[lang="am"], .portfolio__num[lang="am"] { font-size: 1.875rem; line-height: 1; vertical-align: -0.12em; }
-.chapter__num[lang="am"], .hero__kicker b[lang="am"] { font-size: 1.5rem; line-height: 1; vertical-align: -0.1em; }
-.bp-num[lang="am"], .mobile-menu .num[lang="am"] { font-size: 1.375rem; line-height: 1; }
-.steps__num[lang="am"] { font-size: 1.5rem; line-height: 1; }
-.step__num[lang="am"] { font-size: 2.5rem; line-height: 1; }
-.cf figcaption b[lang="am"] { font-size: 1.5rem; line-height: 1; }
-.run__count b[lang="am"], .facts__list b[lang="am"] { font-size: calc(clamp(3.5rem, 7vw, 7rem) * var(--ds)); line-height: 1; }
-.tile__plus[lang="am"] { font-size: calc(clamp(3.5rem, 6vw, 5.5rem) * var(--ds)); }
-.hud--bc b[lang="am"], .reel__hud [lang="am"] { font-size: 1.375rem; vertical-align: -0.15em; }
 
 @media (max-width: 860px) {
     .masthead__name { font-size: calc(1.375rem * var(--ds)); }
