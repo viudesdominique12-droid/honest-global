@@ -414,6 +414,8 @@ body { background: var(--bg); color: var(--fg); }
 .reach__globe { grid-column: 7 / 13; }
 .reach__globe .globe { width: min(100%, 600px); margin-left: auto; }
 .reach__globe .caption { text-align: right; }
+/* On a touch screen the globe takes every drag, up and down as well as sideways; the page scrolls around it */
+.globe { touch-action: none; }
 
 /* ---------------------------------------------------------------- closing photograph */
 .closing-photo { position: relative; min-height: 76vh; display: flex; align-items: flex-end; overflow: hidden; }
@@ -501,7 +503,7 @@ body { background: var(--bg); color: var(--fg); }
     .oil__photo { max-height: none; }
     .reach__text, .reach__globe { grid-column: 1 / -1; }
     .reach__globe { margin-top: 56px; }
-    .reach__globe .globe { margin-inline: auto; }
+    .reach__globe .globe { width: min(80vw, 360px); margin-inline: auto; }
     .reach__globe .caption { text-align: left; }
     .closing-photo__title { grid-column: 1 / -1; }
     .wa { padding: 13px; }
