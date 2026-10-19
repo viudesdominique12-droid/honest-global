@@ -161,9 +161,12 @@
                 }
             }
 
-            /* Continent names, fading out towards the horizon */
+            /* Continent names, fading out towards the horizon, in the site's own faces */
+            var rootStyle = getComputedStyle(document.documentElement);
+            var textFace = rootStyle.getPropertyValue('--sans').trim() || 'Helvetica, Arial, sans-serif';
+            var displayFace = rootStyle.getPropertyValue('--display').trim() || textFace;
             var fontPx = Math.max(8, 9.5 * Math.max(s, 0.85));
-            ctx.font = '500 ' + fontPx.toFixed(1) + 'px "Inter Tight", Helvetica, Arial, sans-serif';
+            ctx.font = '500 ' + fontPx.toFixed(1) + 'px ' + textFace;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             if ('letterSpacing' in ctx) ctx.letterSpacing = (fontPx * 0.2).toFixed(1) + 'px';
@@ -192,9 +195,9 @@
                 ctx.arc(m[0], m[1], 3 * Math.max(s, 0.7), 0, TAU);
                 ctx.fillStyle = PAPER;
                 ctx.fill();
-                ctx.font = 'italic 400 ' + Math.max(11, 13 * s).toFixed(1) + 'px "Playfair Display", Georgia, serif';
+                ctx.font = '600 ' + Math.max(12, 14 * s).toFixed(1) + 'px ' + displayFace;
                 ctx.textAlign = 'left';
-                ctx.fillText('Addis Ababa', m[0] + 14 * Math.max(s, 0.7), m[1] + 1);
+                ctx.fillText('ADDIS ABABA', m[0] + 14 * Math.max(s, 0.7), m[1] + 1);
             }
             ctx.globalAlpha = 1;
         }

@@ -20,7 +20,7 @@
 .masthead__nav > a[aria-current="page"]::after,
 .nav-businesses.is-current > button::after { transform: scaleX(1); }
 .bp-item[aria-current="page"] .bp-name,
-.mobile-menu a[aria-current="page"] { font-style: italic; }
+.mobile-menu a[aria-current="page"] { color: var(--accent); }
 
 /* ---------------------------------------------------------------- opener (a chapter opening) */
 .opener { padding: clamp(18px, 2.4vw, 30px) 0 clamp(88px, 10vw, 152px); }
@@ -38,14 +38,14 @@
     overflow: clip;
     padding: 0.06em 0.14em 0.16em 0;
     margin: -0.06em -0.14em -0.16em 0;
-    font: italic 400 clamp(6rem, 16vw, 14.5rem)/0.8 var(--serif);
+    font: 400 clamp(6rem, 16vw, 14.5rem)/0.8 var(--serif);
     letter-spacing: -0.02em;
     color: var(--accent);
 }
 .opener__num .ch { display: inline-block; }
 .opener__titles { grid-column: 4 / 13; }
 .opener--plain .opener__titles { grid-column: 1 / 12; }
-.opener__kicker { margin-bottom: 18px; font: italic 400 1.375rem/1.2 var(--serif); color: var(--fg-2); }
+.opener__kicker { margin-bottom: 18px; font: 400 1.375rem/1.2 var(--serif); color: var(--fg-2); }
 .opener__title { max-width: 15ch; }
 .opener .rule-double { margin-top: clamp(28px, 3.5vw, 48px); }
 
@@ -62,11 +62,11 @@
 .opener__figure .seal { width: min(100%, 440px); margin-left: auto; }
 .opener__figure .globe { width: min(100%, 520px); margin-left: auto; }
 .opener__figure .caption { text-align: right; }
-.opener__wide { margin-top: clamp(48px, 6vw, 88px); padding-inline: var(--margin); }
+.opener__wide { margin-top: var(--sp-block); padding-inline: var(--margin); }
 .opener__wide .caption { margin-top: 16px; }
 
 /* ---------------------------------------------------------------- shared section parts */
-.section-intro { align-items: end; margin-bottom: clamp(56px, 7vw, 104px); }
+.section-intro { align-items: end; margin-bottom: var(--sp-block); }
 .section-intro__title { grid-column: 1 / 8; }
 .section-intro__lead { grid-column: 9 / 13; }
 .section-intro__lead .standfirst { margin-bottom: 24px; }
@@ -82,9 +82,9 @@
 .engraving .e-hatch { fill: none; stroke: var(--accent); stroke-opacity: 0.55; stroke-width: 0.55; }
 .engraving .e-block { fill: none; stroke: currentColor; stroke-opacity: 0.5; stroke-width: 0.6; }
 .engraving text { fill: currentColor; }
-.engraving .e-num { font: italic 400 9px var(--serif); fill: var(--accent); }
+.engraving .e-num { font: 400 9px var(--serif); fill: var(--accent); }
 .engraving .e-word { font: 400 12px var(--serif); letter-spacing: 2.5px; }
-.engraving .e-word-it { font: italic 400 13px var(--serif); }
+.engraving .e-word-it { font: 400 13px var(--serif); }
 .engraving .e-big { font: 400 19px var(--serif); }
 
 .engraving .e-label { font: 500 7.5px var(--sans); letter-spacing: 2.4px; text-transform: uppercase; fill: currentColor; fill-opacity: 0.6; }
@@ -93,14 +93,14 @@
 .sack .sack__weave { stroke: none; }
 .sack .sack__stamp text { fill: var(--accent); }
 .sack .s-big { font: 600 15px var(--sans); letter-spacing: 3px; }
-.sack .s-it { font: italic 400 21px var(--serif); }
+.sack .s-it { font: 400 21px var(--serif); }
 .sack .s-small { font: 500 6.5px var(--sans); letter-spacing: 1.6px; }
 
 /* Plates holding a drawing */
 .car-plate { position: relative; aspect-ratio: 640 / 250; overflow: hidden; background: var(--ink-raised); }
 .car-plate > svg { position: absolute; top: 8%; left: 4%; width: 92%; height: 84%; }
 
-.auto__plate { margin-bottom: clamp(48px, 6vw, 88px); }
+.auto__plate { margin-bottom: var(--sp-block); }
 .auto__plate .car-plate { grid-column: 1 / -1; }
 .auto__text .note { margin-top: 22px; }
 
@@ -121,7 +121,7 @@
 .duo__title { margin-top: 10px; font: 400 clamp(2.75rem, 5.5vw, 5rem)/0.95 var(--serif); letter-spacing: -0.025em; color: var(--fg); }
 .duo__line { margin-top: 14px; color: var(--fg-2); }
 .duo__item:hover { background: #111A2B; }
-.duo__item:hover .duo__title { font-style: italic; }
+.duo__item:hover .duo__title { color: var(--accent); }
 
 /* Visual index of the three businesses */
 .mini-index { row-gap: 32px; }
@@ -129,11 +129,11 @@
 .mini { display: block; }
 .mini__art { position: relative; display: block; aspect-ratio: 5 / 4; background: var(--ink-raised); transition: background-color 0.4s var(--ease); }
 .mini__art img { position: absolute; top: 12%; left: 12%; width: 76%; height: 76%; object-fit: contain; transition: transform 0.8s var(--ease); }
-.mini__num { display: inline-block; margin: 16px 0.6em 0 0; font: italic 400 0.9375rem var(--serif); color: var(--accent); }
+.mini__num { display: inline-block; margin: 16px 0.6em 0 0; font: 400 0.9375rem var(--serif); color: var(--accent); }
 .mini__name { font: 400 clamp(1.125rem, 1.5vw, 1.375rem)/1.2 var(--serif); color: var(--fg); }
 .mini:hover .mini__art { background: #111A2B; }
 .mini:hover .mini__art img { transform: scale(1.04); }
-.mini:hover .mini__name { font-style: italic; }
+.mini:hover .mini__name { color: var(--accent); }
 
 .legend-list { columns: 2; column-gap: var(--gutter); margin-top: 20px; }
 .legend-list li {
@@ -146,10 +146,10 @@
     line-height: 1.45;
     color: var(--fg-2);
 }
-.legend-list li span { min-width: 1.4em; font: italic 400 0.875rem var(--serif); color: var(--accent); }
+.legend-list li span { min-width: 1.4em; font: 400 0.875rem var(--serif); color: var(--accent); }
 
 /* ---------------------------------------------------------------- trading: two directions */
-.doors { row-gap: var(--gutter); margin-bottom: clamp(104px, 12vw, 176px); }
+.doors { row-gap: var(--gutter); margin-bottom: var(--sp-section); }
 .door {
     grid-column: span 6;
     display: flex;
@@ -166,11 +166,11 @@
 .door__cta { margin-top: 28px; font-size: 0.9375rem; color: var(--fg); }
 .door__cta .arr { display: inline-block; margin-left: 0.5em; transition: transform 0.35s var(--ease); }
 .door:hover { background: #111A2B; }
-.door:hover .door__title { font-style: italic; }
+.door:hover .door__title { color: var(--accent); }
 .door:hover .door__cta .arr { transform: translateX(4px); }
 
 /* ---------------------------------------------------------------- trading: coffee */
-.coffee__body { align-items: start; margin-bottom: clamp(104px, 12vw, 176px); }
+.coffee__body { align-items: start; margin-bottom: var(--sp-section); }
 .coffee__figure { grid-column: 1 / 6; }
 .coffee__plate { aspect-ratio: 4 / 5; }
 .coffee__plate > svg { top: 9%; left: 13%; width: 74%; height: 82%; }
@@ -186,7 +186,7 @@
 .request__form { grid-column: 6 / 13; }
 
 .form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px var(--gutter); }
-.form__section { grid-column: 1 / -1; margin-top: 18px; font: italic 400 1.25rem/1.2 var(--serif); color: var(--fg-2); }
+.form__section { grid-column: 1 / -1; margin-top: 18px; font: 400 1.25rem/1.2 var(--serif); color: var(--fg-2); }
 .form__section:first-child { margin-top: 0; }
 .field { display: flex; flex-direction: column; gap: 9px; min-width: 0; margin: 0; padding: 0; border: 0; }
 .field--full { grid-column: 1 / -1; }
@@ -250,7 +250,7 @@
 .consent input[aria-invalid="true"] { border-color: #C9826F; }
 .form__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px; margin-top: 8px; }
 .form__note { max-width: 46ch; font-size: 0.8125rem; color: var(--fg-3); }
-.form__status { grid-column: 1 / -1; font: italic 400 1.0625rem/1.5 var(--serif); color: var(--fg); }
+.form__status { grid-column: 1 / -1; font: 400 1.0625rem/1.5 var(--serif); color: var(--fg); }
 .form__status:empty { display: none; }
 .hp { position: absolute !important; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 
@@ -270,7 +270,7 @@
 .btn-solid[disabled] { opacity: 0.6; cursor: progress; }
 
 /* ---------------------------------------------------------------- automobiles: marque explorer */
-.mx { align-items: start; margin-bottom: clamp(104px, 12vw, 176px); }
+.mx { align-items: start; margin-bottom: var(--sp-section); }
 .mx__list { grid-column: 1 / 7; }
 .mx-group + .mx-group { margin-top: 48px; }
 .mx-group__name { margin-bottom: 12px; font-size: 0.8125rem; color: var(--fg-3); }
@@ -285,7 +285,7 @@
     transition: color 0.3s var(--ease);
 }
 .mx-marque:hover { color: var(--fg-2); }
-.mx-marque.is-active { color: var(--fg); font-style: italic; }
+.mx-marque.is-active { color: var(--fg); color: var(--accent); }
 .mx__panel {
     grid-column: 8 / 13;
     position: sticky;
@@ -305,67 +305,56 @@
 .mx-panel__cta { margin-top: auto; padding-top: 32px; }
 
 /* ---------------------------------------------------------------- automobiles: process */
-.process { row-gap: 56px; margin-bottom: clamp(104px, 12vw, 176px); }
+.process { row-gap: 40px; margin-bottom: var(--sp-section); }
 .step { grid-column: span 4; }
 .step__art { display: block; width: 112px; height: 112px; margin-bottom: 20px; }
-.step__num { display: block; font: italic 400 clamp(2rem, 3vw, 2.75rem)/1 var(--serif); color: var(--accent); }
+.step__num { display: block; font: 400 clamp(2rem, 3vw, 2.75rem)/1 var(--serif); color: var(--accent); }
 .step__title { margin: 18px 0 12px; font: 400 1.5rem/1.2 var(--serif); color: var(--fg); }
 .step p { max-width: 34ch; color: var(--fg-2); }
 .process__note { grid-column: 1 / 9; }
 
 /* ---------------------------------------------------------------- oil */
-.sheet { row-gap: 64px; margin-bottom: clamp(104px, 12vw, 176px); }
+.sheet { row-gap: 40px; margin-bottom: var(--sp-section); }
 .sheet__fig { grid-column: span 6; }
 .sheet__plan { aspect-ratio: 5 / 6; }
 .sheet__plan > svg { top: 20%; height: 60%; }
-.label-detail { align-items: start; margin-bottom: clamp(104px, 12vw, 176px); }
+.label-detail { align-items: start; margin-bottom: var(--sp-section); }
 .label-detail__fig { grid-column: 1 / 7; }
 .label-detail__text { grid-column: 8 / 13; }
 .label-detail__text .note { margin-top: 24px; }
 
 /* ---------------------------------------------------------------- about */
-.principles { row-gap: 56px; margin-bottom: clamp(104px, 12vw, 176px); }
+.principles { row-gap: 40px; margin-bottom: var(--sp-section); }
 .principle { grid-column: span 4; }
 .principle h3 { margin-bottom: 16px; font: 400 clamp(1.75rem, 2.6vw, 2.375rem)/1.1 var(--serif); color: var(--fg); }
-.principle h3 em { font-style: italic; }
+.principle h3 em { color: var(--accent); }
 .principle p { max-width: 32ch; color: var(--fg-2); }
 
-.portfolio { row-gap: 40px; margin-bottom: clamp(104px, 12vw, 176px); }
+.portfolio { row-gap: 40px; margin-bottom: var(--sp-section); }
 .portfolio__item { grid-column: span 4; display: block; }
 .portfolio__art { position: relative; display: block; aspect-ratio: 16 / 9; margin-bottom: 22px; background: var(--ink-raised); }
 .portfolio__art img { position: absolute; top: 12%; left: 12%; width: 76%; height: 76%; object-fit: contain; transition: transform 0.8s var(--ease); }
 .portfolio__item:hover .portfolio__art img { transform: scale(1.04); }
-.portfolio__num { font: italic 400 1rem var(--serif); color: var(--accent); }
+.portfolio__num { font: 400 1rem var(--serif); color: var(--accent); }
 .portfolio__name { display: block; margin: 8px 0 10px; font: 400 clamp(2rem, 3.4vw, 3.25rem)/1.05 var(--serif); letter-spacing: -0.015em; color: var(--fg); }
 .portfolio__line { display: block; max-width: 40ch; color: var(--fg-2); }
 .portfolio__go { display: inline-block; margin-top: 16px; font-size: 0.9375rem; color: var(--fg); }
 .portfolio__go .arr { display: inline-block; margin-left: 0.5em; transition: transform 0.35s var(--ease); }
-.portfolio__item:hover .portfolio__name { font-style: italic; }
+.portfolio__item:hover .portfolio__name { color: var(--accent); }
 .portfolio__item:hover .portfolio__go .arr { transform: translateX(4px); }
 
-.letter { padding-top: 1px; padding-bottom: clamp(96px, 11vw, 168px); margin-bottom: clamp(96px, 11vw, 168px); }
-.letter .chapter__head { margin-top: clamp(40px, 5vw, 72px); }
+.letter { padding-top: 1px; padding-bottom: var(--sp-section); margin-bottom: var(--sp-section); }
+.letter .chapter__head { margin-top: var(--sp-block); }
 
 /* ---------------------------------------------------------------- contact */
-.contact-grid { align-items: start; margin-bottom: clamp(104px, 12vw, 176px); }
+.contact-grid { align-items: start; margin-bottom: var(--sp-section); }
 .contact-details { grid-column: 1 / 5; display: grid; gap: 34px; }
 .contact-details dt { margin-bottom: 8px; font-size: 0.8125rem; color: var(--fg-3); }
 .contact-details dd { font: 400 1.125rem/1.45 var(--serif); color: var(--fg); }
-.contact-details dd.tbc { font-style: italic; color: var(--fg-2); }
+.contact-details dd.tbc { color: var(--accent); color: var(--fg-2); }
 .contact-details dd a { display: block; width: fit-content; margin-bottom: 6px; font: 400 1rem/1.45 var(--sans); color: var(--fg-2); transition: color 0.25s var(--ease); }
 .contact-details dd a:hover { color: var(--fg); }
 .contact-form { grid-column: 6 / 13; }
-
-/* ---------------------------------------------------------------- motion: opener states */
-.motion .opener__meta p,
-.motion .opener__num,
-.motion .opener__kicker,
-.motion .opener__title,
-.motion .opener .rule-double,
-.motion .opener__deck,
-.motion .opener__aside,
-.motion .opener__figure,
-.motion .opener__wide { visibility: hidden; opacity: 0; }
 
 /* ---------------------------------------------------------------- responsive */
 @media (max-width: 1080px) {

@@ -1,0 +1,108 @@
+/* Honest Global PLC, typography. Loaded last on every page.
+   Barlow Condensed for display, DM Sans for text.
+   No italics: emphasis is carried by colour.
+   Decorative numbers are Ethiopic (Ge'ez) numerals, set in Noto Sans Ethiopic, narrowed to sit with Barlow Condensed.
+   Practical numbers (telephone, address, quantities, coordinates) stay in Western digits. */
+
+:root {
+    --sans: "DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --display: "Barlow Condensed", "Noto Sans Ethiopic", "Arial Narrow", "Helvetica Neue", sans-serif;
+    --geez: "Noto Sans Ethiopic", "Barlow Condensed", sans-serif;
+    --display-weight: 600;
+    --display-track: 0.004em;
+    --display-lh: 0.92;
+    --ds: 1.06;
+    --serif: var(--sans);
+}
+
+body { font-family: var(--sans); }
+em, i { font-style: normal; }
+
+/* ---------------------------------------------------------------- display type */
+.display-xl, .display-l, .display-m, .display-s,
+.hero__title, .boot__word .w, .masthead__name, .footer__name,
+.card__name, .tile__name, .tile__plus, .run__count b, .facts__list b,
+.steps__title, .step__title, .door__title, .duo__title, .panel__name, .panel__letter,
+.mx-panel__name, .mx-marque, .portfolio__name, .bp-name, .mobile-menu > a,
+.principle h3, .cf figcaption, .rc figcaption, .strip__item figcaption,
+.bottle .b-word, .bottle .b-word-it, .sack .s-it, .engraving .e-word, .engraving .e-word-it, .engraving .e-big,
+.bm-labels text, .tile__all, .link--lead, .kicker, .form__section, .signature, .spec dd, .closing__details .tbc {
+    font-family: var(--display);
+    font-weight: var(--display-weight);
+    letter-spacing: var(--display-track);
+    text-transform: uppercase;
+}
+.display-xl { font-size: calc(clamp(2.6rem, 6vw, 6.25rem) * var(--ds)); line-height: var(--display-lh); }
+.display-l  { font-size: calc(clamp(2.25rem, 4.2vw, 4rem) * var(--ds)); line-height: calc(var(--display-lh) + 0.04); }
+.display-m  { font-size: calc(clamp(1.875rem, 3vw, 3rem) * var(--ds)); line-height: 1; }
+.display-s  { font-size: calc(clamp(1.25rem, 1.7vw, 1.625rem) * var(--ds)); line-height: 1.15; }
+.hero__title { font-size: calc(clamp(3rem, 8vw, 8.25rem) * var(--ds)); line-height: var(--display-lh); }
+.hero--page .hero__title { font-size: calc(clamp(2.75rem, 6.2vw, 6.5rem) * var(--ds)); max-width: 16ch; }
+.boot__word { font-size: calc(clamp(2.25rem, 5.4vw, 4.75rem) * var(--ds)); }
+.masthead__name { font-size: calc(1.75rem * var(--ds)); }
+.footer__name { font-size: calc(1.75rem * var(--ds)); }
+.card__name { font-size: calc(clamp(1.625rem, 2.3vw, 2.375rem) * var(--ds)); line-height: 1; }
+.tile__name, .cf figcaption, .rc figcaption, .strip__item figcaption, .steps__title, .step__title, .portfolio__name, .bp-name {
+    font-size: calc(1.375rem * var(--ds));
+    line-height: 1.05;
+}
+.portfolio__name { font-size: calc(clamp(2rem, 3vw, 2.75rem) * var(--ds)); }
+.door__title, .duo__title { font-size: calc(clamp(3.25rem, 7vw, 6.5rem) * var(--ds)); line-height: 0.9; }
+.run__count b, .facts__list b { font-size: calc(clamp(4rem, 8vw, 8rem) * var(--ds)); line-height: 0.85; }
+.facts__list b.facts__word { font-size: calc(clamp(1.75rem, 2.8vw, 2.625rem) * var(--ds)); }
+.tile__plus { font-size: calc(clamp(4rem, 7vw, 6.5rem) * var(--ds)); }
+.mx-marque { font-size: calc(clamp(1.625rem, 2.6vw, 2.5rem) * var(--ds)); line-height: 1.1; }
+.mx-panel__name, .panel__name { font-size: calc(clamp(1.75rem, 2.6vw, 2.5rem) * var(--ds)); line-height: 1; }
+.panel__letter { font-size: calc(3.5rem * var(--ds)); }
+.mobile-menu > a { font-size: calc(2rem * var(--ds)); line-height: 1.1; }
+.principle h3 { font-size: calc(clamp(1.75rem, 2.6vw, 2.375rem) * var(--ds)); line-height: 1.02; }
+.link--lead { font-size: calc(1.25rem * var(--ds)); }
+.kicker, .form__section { font-size: calc(1.25rem * var(--ds)); }
+.signature { font-size: calc(1.125rem * var(--ds)); }
+.spec dd { font-size: calc(1.25rem * var(--ds)); line-height: 1.15; }
+
+/* Emphasis: colour, not italics */
+.display-xl em, .display-l em, .display-m em, .display-s em, .hero__title em, .closing-photo__title em { color: var(--accent); }
+.hero__title em, .closing-photo__title em { color: var(--gold); }
+
+/* Small type in the text face, never uppercase display */
+.mobile-menu .mobile-menu__contact a { font-family: var(--sans); font-weight: 400; text-transform: none; letter-spacing: 0; }
+.legend em, .dir em, .duo__dir em, .door__dir em { font-family: var(--display); font-weight: var(--display-weight); }
+
+/* ---------------------------------------------------------------- numbers */
+.card__num, .chapter__num, .bp-num, .mobile-menu .num, .portfolio__num, .steps__num, .step__num,
+.hero__kicker b, .bm-num, .tile__letter, .cf figcaption b, .lg-dir, .caption .fig, .sector__letter, .bp-num {
+    font-family: var(--display);
+    font-weight: var(--display-weight);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+.card__num { font-size: 1.125rem; }
+.hero__kicker b { font-size: 1rem; letter-spacing: 0.06em; }
+.steps__num, .tile__letter { font-size: 1rem; }
+.step__num { font-size: 1.5rem; }
+.caption .fig { font-size: 0.9375rem; }
+.sector__letter { font-size: 0.875rem; }
+.sector { font-family: var(--sans); font-size: 1rem; }
+
+/* Ge'ez numerals: narrowed, a touch larger, no tracking (each numeral carries its own rules above and below) */
+[lang="am"] {
+    font-family: var(--geez);
+    font-stretch: 75%;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+}
+.card__num[lang="am"], .portfolio__num[lang="am"] { font-size: 1.875rem; line-height: 1; vertical-align: -0.12em; }
+.chapter__num[lang="am"], .hero__kicker b[lang="am"] { font-size: 1.5rem; line-height: 1; vertical-align: -0.1em; }
+.bp-num[lang="am"], .mobile-menu .num[lang="am"] { font-size: 1.375rem; line-height: 1; }
+.steps__num[lang="am"] { font-size: 1.5rem; line-height: 1; }
+.step__num[lang="am"] { font-size: 2.5rem; line-height: 1; }
+.cf figcaption b[lang="am"] { font-size: 1.5rem; line-height: 1; }
+.run__count b[lang="am"], .facts__list b[lang="am"] { font-size: calc(clamp(3.5rem, 7vw, 7rem) * var(--ds)); line-height: 1; }
+.tile__plus[lang="am"] { font-size: calc(clamp(3.5rem, 6vw, 5.5rem) * var(--ds)); }
+.hud--bc b[lang="am"], .reel__hud [lang="am"] { font-size: 1.375rem; vertical-align: -0.15em; }
+
+@media (max-width: 860px) {
+    .masthead__name { font-size: calc(1.375rem * var(--ds)); }
+}

@@ -350,7 +350,9 @@
                     var h = esc(it);
                     return query && norm(it).indexOf(query) > -1 ? '<mark>' + h + '</mark>' : h;
                 }).join('<span class="sep"> · </span>');
-                return '<div class="panel__inner"><span class="panel__letter">' + s.letter + '</span>' +
+                var photo = s.photo ? '<div class="panel__media"><img src="https://images.unsplash.com/photo-' + s.photo +
+                    '?auto=format&fit=crop&w=900&q=70" width="900" height="506" alt="" loading="lazy" decoding="async"></div>' : '';
+                return '<div class="panel__inner">' + photo + '<span class="panel__letter">' + s.letter + '</span>' +
                     '<h4 class="panel__name">' + esc(s.name) + '</h4>' +
                     '<p class="panel__items">' + items + '</p>' +
                     (s.note ? '<p class="note panel__note">' + esc(s.note) + '</p>' : '') +
@@ -736,7 +738,8 @@
         }
     }
 
-    /* A page may bring its own opening and scenes (see home.js) */
+    /* Shared opening and scenes (site.js); a page may bring its own (home.js) */
+    var site = window.HG_SITE || null;
     var page = window.HG_PAGE || null;
     var pageApi = {
         $: $, $$: $$, EASE: EASE, lenis: lenis, headerH: headerH, scrollToEl: scrollToEl,
@@ -745,9 +748,11 @@
 
     fontsReady().then(function () {
         if (page && page.intro) page.intro(pageApi);
+        else if (site && site.intro) site.intro(pageApi);
         else if (fitEl) homeIntro();
         else openerIntro();
         scrollScenes();
+        if (site && site.scenes) site.scenes(pageApi);
         if (page && page.scenes) page.scenes(pageApi);
         ScrollTrigger.sort();
         ScrollTrigger.refresh();

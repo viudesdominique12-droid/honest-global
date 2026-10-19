@@ -1,0 +1,432 @@
+/* Honest Global PLC, site theme
+   Loaded on every page after style.css and pages.css.
+   Clear blues instead of the night sky, photographs first, no ruled lines between sections. */
+
+:root {
+    --bg: #17325A;
+    --bg-2: #1E3D6B;
+    --bg-3: #264A80;
+    --deep: #0F2442;
+    --gold: #E9C77B;
+
+    /* The original tokens, re-pointed so every older component turns blue */
+    --ink: #17325A;
+    --ink-raised: #1E3D6B;
+    --sky: #9DBBE0;
+    --steel: #7EA3D3;
+    --field: #1B3962;
+
+    --fg: #F5F0E6;
+    --fg-2: rgba(245, 240, 230, 0.8);
+    --fg-3: rgba(245, 240, 230, 0.6);
+    --rule: rgba(245, 240, 230, 0.16);
+    --rule-strong: rgba(245, 240, 230, 0.42);
+    --accent: #9DBBE0;
+    --header-h: 92px;
+
+    /* Rhythm: between sections, between a heading and its content, under a chapter label */
+    --sp-section: clamp(56px, 6vw, 96px);
+    --sp-block: clamp(28px, 3.4vw, 52px);
+    --sp-head: clamp(18px, 2vw, 28px);
+}
+body { background: var(--bg); color: var(--fg); }
+::selection { background: #9DBBE0; color: #0F2442; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+.on-ink, .on-photo, .on-paper {
+    --fg: #F5F0E6;
+    --fg-2: rgba(245, 240, 230, 0.8);
+    --fg-3: rgba(245, 240, 230, 0.6);
+    --rule: rgba(245, 240, 230, 0.16);
+    --rule-strong: rgba(245, 240, 230, 0.45);
+    --accent: #9DBBE0;
+    --field: rgba(245, 240, 230, 0.08);
+    color: var(--fg);
+}
+.on-ink { background: var(--deep); }
+.on-paper { background: var(--bg-3); }
+.on-photo { background: transparent; }
+
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ---------------------------------------------------------------- brand: the cannon mark and the name */
+.brand { display: inline-flex; align-items: center; }
+.brand__mark { width: 52px; height: 52px; margin-right: 14px; flex: none; color: var(--gold); transition: width 0.45s var(--ease), height 0.45s var(--ease); }
+.footer .brand__mark { width: 56px; height: 56px; }
+
+/* ---------------------------------------------------------------- buttons and small type */
+.btn, .btn-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7em;
+    padding: 15px 24px;
+    font: 500 0.9375rem/1.2 var(--sans);
+    color: var(--deep);
+    background: #F5F0E6;
+    transition: background-color 0.35s var(--ease), color 0.35s var(--ease);
+}
+.btn .arr, .btn-solid .arr { display: inline-block; transition: transform 0.35s var(--ease); }
+.btn:hover, .btn-solid:hover { background: #fff; }
+.btn:hover .arr, .btn-solid:hover .arr { transform: translateX(4px); }
+.link--plain { border-bottom-color: var(--rule-strong); }
+
+.eyebrow {
+    grid-column: 1 / -1;
+    margin-bottom: 18px;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg-3);
+}
+.dir { grid-column: 1 / -1; margin-bottom: 14px; font-size: 0.875rem; color: var(--fg-3); }
+.dir em { margin: 0 0.4em; font-family: var(--serif); color: var(--accent); }
+
+/* ---------------------------------------------------------------- masthead
+   The mark, the navigation, a telephone number and a call to action.
+   It sits on the photograph, then settles into a compact blue bar. */
+.masthead {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    border-bottom: 0;
+    background: rgba(17, 38, 70, 0.92);
+    -webkit-backdrop-filter: saturate(1.4) blur(16px);
+    backdrop-filter: saturate(1.4) blur(16px);
+    box-shadow: 0 18px 40px -26px rgba(3, 10, 24, 0.85);
+    transition: background-color 0.45s var(--ease), box-shadow 0.45s var(--ease);
+}
+.masthead.is-compact { --header-h: 72px; }
+/* A backdrop filter would trap the full-screen menu inside the bar */
+.masthead.menu-open { background: var(--bg-2); -webkit-backdrop-filter: none; backdrop-filter: none; }
+.masthead.is-over:not(.menu-open) {
+    --fg: #F8F6F1;
+    --fg-2: rgba(248, 246, 241, 0.88);
+    --fg-3: rgba(248, 246, 241, 0.64);
+    --rule: rgba(248, 246, 241, 0.2);
+    background: linear-gradient(180deg, rgba(8, 20, 40, 0.6) 0%, rgba(8, 20, 40, 0) 100%);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+.masthead__bar { gap: clamp(20px, 2.6vw, 44px); transition: height 0.45s var(--ease); }
+.masthead__name { font-size: 1.625rem; letter-spacing: -0.01em; }
+.masthead.is-compact .brand__mark { width: 44px; height: 44px; }
+.masthead__running { display: none; }
+.masthead__nav { margin-left: auto; gap: clamp(22px, 2.6vw, 40px); }
+.masthead__nav > a,
+.nav-businesses > button {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg);
+}
+.masthead__nav > a::after,
+.nav-businesses > button::after { bottom: 22%; height: 1px; background: currentColor; }
+.masthead__actions { display: flex; align-items: center; gap: clamp(18px, 2vw, 28px); }
+.mh-phone { display: inline-flex; align-items: center; gap: 10px; font-size: 0.9375rem; font-variant-numeric: tabular-nums; color: var(--fg); white-space: nowrap; }
+.mh-phone__icon { width: 16px; height: 16px; fill: currentColor; opacity: 0.85; }
+.mh-phone:hover { color: #fff; }
+.mh-cta { padding: 13px 20px; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; }
+
+/* Businesses: a compact dropdown under its button, a small photograph beside each name */
+.businesses-panel,
+.mobile-menu {
+    --fg: #F5F0E6;
+    --fg-2: rgba(245, 240, 230, 0.8);
+    --fg-3: rgba(245, 240, 230, 0.6);
+    --rule: rgba(245, 240, 230, 0.16);
+    --accent: #9DBBE0;
+    background: var(--bg-2);
+    color: var(--fg);
+    border: 0;
+}
+.nav-businesses { position: relative; }
+.businesses-panel {
+    left: 50%;
+    right: auto;
+    top: calc(100% - 12px);
+    width: 400px;
+    padding: 8px;
+    transform: translate(-50%, -6px);
+    box-shadow: 0 24px 50px -20px rgba(3, 10, 24, 0.85);
+}
+.nav-businesses.is-open .businesses-panel { transform: translate(-50%, 0); }
+@media (hover: hover) and (min-width: 861px) {
+    .nav-businesses:hover .businesses-panel { transform: translate(-50%, 0); }
+}
+.businesses-panel__list { display: flex; flex-direction: column; gap: 2px; padding: 0; }
+.bp-item { display: grid; grid-template-columns: 64px 1fr; column-gap: 16px; align-items: center; padding: 10px; transition: background-color 0.3s var(--ease); }
+.bp-item:hover, .bp-item[aria-current="page"] { background: var(--bg-3); }
+.bp-media { grid-row: 1 / span 3; width: 64px; height: 64px; overflow: hidden; background: var(--bg-3); }
+.bp-media img { width: 100%; height: 100%; object-fit: cover; }
+.bp-num, .bp-name, .bp-desc { grid-column: 2; }
+.bp-num { font-size: 0.8125rem; }
+.bp-name { margin: 1px 0 2px; font-size: 1.125rem; line-height: 1.2; }
+.bp-desc { font-size: 0.8125rem; line-height: 1.35; }
+.bp-item:hover .bp-name { color: var(--accent); }
+
+.menu-btn {
+    padding: 11px 18px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fg);
+    background: rgba(245, 240, 230, 0.12);
+}
+.mobile-menu__contact { margin-top: 28px; padding-top: 8px; }
+.mobile-menu .mobile-menu__contact a { display: block; padding: 7px 0; font: 400 1rem/1.4 var(--sans); color: var(--fg); }
+.mobile-menu__contact p { margin-top: 10px; font-size: 0.875rem; color: var(--fg-3); }
+
+/* ---------------------------------------------------------------- no ruled lines between sections */
+.chapter__head::before,
+.footer__top::before,
+.footer__bottom::before,
+.exports::before,
+.rule-double { display: none; }
+.chapter__head { padding-top: 0; }
+.chapter__name, .chapter__kind { font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.chapter, .closing { padding-top: 0; }
+
+/* ---------------------------------------------------------------- hero: a full photograph, home and inner pages */
+.hero { position: relative; height: 100vh; height: 100svh; min-height: 560px; overflow: hidden; background: var(--bg); }
+.hero--page { height: 72vh; height: 72svh; min-height: 500px; margin-bottom: var(--sp-section); }
+.hero__media { position: absolute; inset: 0; overflow: hidden; clip-path: inset(0% 0% 0% 0% round 0px); background: var(--bg-2); }
+.hero__media img { width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 60%; }
+.hero__shade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, rgba(10, 15, 26, 0.42) 0%, rgba(10, 15, 26, 0) 22%),
+        linear-gradient(90deg, rgba(10, 15, 26, 0.5) 0%, rgba(10, 15, 26, 0.12) 50%, rgba(10, 15, 26, 0) 70%),
+        linear-gradient(0deg, rgba(10, 15, 26, 0.72) 0%, rgba(10, 15, 26, 0.2) 46%, rgba(10, 15, 26, 0) 64%);
+}
+.hero__inner { position: absolute; left: 0; right: 0; bottom: clamp(56px, 9vh, 104px); }
+.hero__text { grid-column: 1 / 9; }
+.hero__kicker { margin-bottom: 20px; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-2); }
+.hero__kicker b { margin-right: 0.6em; font: 400 1.0625rem var(--serif); letter-spacing: 0; text-transform: none; color: var(--gold); }
+.hero__title { font: 400 clamp(3rem, 8vw, 8.25rem)/0.95 var(--serif); letter-spacing: -0.025em; color: var(--fg); }
+.hero--page .hero__title { font-size: clamp(2.75rem, 6.2vw, 6.5rem); max-width: 14ch; }
+.hero__title em { color: var(--accent); }
+.hero__lead { max-width: 36ch; margin-top: 24px; font-size: clamp(1.0625rem, 1.3vw, 1.25rem); font-weight: 300; line-height: 1.55; color: var(--fg-2); }
+.hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 30px; margin-top: 34px; }
+.hero__scroll {
+    position: absolute;
+    right: var(--margin);
+    bottom: clamp(56px, 9vh, 104px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fg-2);
+}
+.hero__scroll::after {
+    content: "";
+    width: 1px;
+    height: 64px;
+    background: linear-gradient(var(--fg-2), transparent);
+    transform-origin: top;
+    animation: scrollcue 2.4s var(--ease) infinite;
+}
+@keyframes scrollcue {
+    0% { transform: scaleY(0); opacity: 1; }
+    60% { transform: scaleY(1); opacity: 1; }
+    100% { transform: scaleY(1); opacity: 0; }
+}
+
+/* Before the opening plays, the hero and the masthead wait */
+.motion .hero__kicker,
+.motion .hero__title,
+.motion .hero__lead,
+.motion .hero__actions,
+.motion .hero__scroll,
+.motion .masthead__bar > * { visibility: hidden; opacity: 0; }
+
+/* Revealed media (larger screens only): a wipe from the bottom, the photo settling inside */
+@media (min-width: 861px) {
+    .motion [data-reveal] { clip-path: inset(100% 0% 0% 0%); }
+}
+[data-reveal] img { will-change: transform; }
+
+/* ---------------------------------------------------------------- photographs in groups */
+/* A mosaic of four (coffee) */
+.coffee { row-gap: var(--gutter); align-items: start; }
+.cf--1 { grid-column: 1 / 7; grid-row: 1 / 3; }
+.cf--2 { grid-column: 7 / 10; margin-top: clamp(0px, 8vw, 128px); }
+.cf--3 { grid-column: 10 / 13; }
+.cf--4 { grid-column: 7 / 13; }
+.cf__media { position: relative; overflow: hidden; background: var(--bg-2); }
+.cf--1 .cf__media { aspect-ratio: 4 / 5; }
+.cf--2 .cf__media, .cf--3 .cf__media { aspect-ratio: 3 / 4; }
+.cf--4 .cf__media { aspect-ratio: 16 / 10; }
+.cf__media img { width: 100%; height: 100%; object-fit: cover; }
+.cf figcaption { display: flex; align-items: baseline; gap: 10px; margin-top: 12px; font: 400 1.125rem/1.2 var(--serif); color: var(--fg); }
+.cf figcaption b { font: 500 0.75rem var(--sans); letter-spacing: 0.1em; color: var(--accent); }
+
+.coffee--page { margin-bottom: var(--sp-block); }
+
+/* A row of photographs you swipe */
+.strip {
+    display: flex;
+    gap: var(--gutter);
+    padding-inline: var(--margin);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+}
+.strip::-webkit-scrollbar { display: none; }
+.strip__item { flex: none; width: clamp(280px, 30vw, 460px); scroll-snap-align: start; scroll-margin-left: var(--margin); }
+.strip__media { aspect-ratio: 3 / 2; overflow: hidden; background: var(--bg-2); }
+.strip__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.strip__item:hover .strip__media img { transform: scale(1.04); }
+.strip__item figcaption { margin-top: 12px; font: 400 1.25rem/1.2 var(--serif); color: var(--fg); }
+.strip-wrap { margin-bottom: var(--sp-block); }
+.strip-wrap .note { margin: 18px var(--margin) 0; }
+
+/* Three steps, each with its photograph */
+.steps { row-gap: 40px; align-items: start; margin-bottom: var(--sp-section); }
+.steps__item { grid-column: span 4; }
+.steps__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--bg-2); }
+.steps__media img { width: 100%; height: 100%; object-fit: cover; }
+.steps__num {
+    position: absolute;
+    top: 14px; left: 14px;
+    display: grid;
+    place-items: center;
+    width: 40px; height: 40px;
+    font: 400 1.125rem/1 var(--serif);
+    color: var(--deep);
+    background: #F5F0E6;
+}
+.steps__title { margin-top: 20px; font: 400 clamp(1.5rem, 2vw, 1.875rem)/1.15 var(--serif); color: var(--fg); }
+.steps__line { margin-top: 8px; max-width: 34ch; color: var(--fg-2); }
+
+/* Photograph cards (about) */
+.portfolio__art--photo { aspect-ratio: 4 / 3; }
+.portfolio__art--photo img { position: static; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------------------------------------------------------------- the Honest Oil container on blue */
+.oil__plate, .plate, .plate-fig, .sheet__plate, .label-detail__plate { background: var(--bg-2); }
+.bottle .b-panel { fill: var(--bg-2); }
+.bottle .b-fill { stroke: #D4A85A; stroke-opacity: 0.75; }
+.bottle .b-surface { stroke: #E2B969; }
+.oil__photo { aspect-ratio: 16 / 9; max-height: 30vh; width: 100%; margin-bottom: clamp(28px, 3vw, 40px); overflow: hidden; background: var(--bg-2); }
+.oil__photo img { width: 100%; height: 100%; object-fit: cover; }
+.oil__text .display-l { margin-bottom: 26px; }
+.oil__text .spec { margin-bottom: 32px; }
+
+/* ---------------------------------------------------------------- the globe band */
+.reach { padding: var(--sp-section) 0; background: var(--bg-3); }
+.reach__body { align-items: center; }
+.reach__text { grid-column: 1 / 7; }
+.reach__text .display-l { margin-bottom: 28px; }
+.reach__address { margin: -16px 0 32px; font-size: 0.9375rem; color: var(--fg-2); }
+.reach__legend li { display: flex; align-items: baseline; gap: 16px; padding: 8px 0; color: var(--fg-2); }
+.reach__legend a { color: var(--fg); border-bottom: 1px solid var(--rule-strong); }
+.lg-dir { min-width: 2.6em; font: 400 1.0625rem var(--serif); color: var(--accent); }
+.reach__globe { grid-column: 7 / 13; }
+.reach__globe .globe { width: min(100%, 600px); margin-left: auto; }
+.reach__globe .caption { text-align: right; }
+
+/* ---------------------------------------------------------------- closing photograph */
+.closing-photo { position: relative; min-height: 76vh; display: flex; align-items: flex-end; overflow: hidden; }
+.closing-photo__media { position: absolute; inset: -8% 0; }
+.closing-photo__media img { width: 100%; height: 100%; object-fit: cover; }
+.closing-photo__shade { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(10, 15, 26, 0.78) 0%, rgba(10, 15, 26, 0.25) 55%, rgba(10, 15, 26, 0.1) 100%); }
+.closing-photo__body { position: relative; width: 100%; padding-bottom: var(--sp-section); }
+.closing-photo__title { grid-column: 1 / 11; margin-bottom: var(--sp-block); }
+.closing-photo__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 40px; }
+.closing-photo__links { display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: 0.9375rem; }
+.closing-photo__links a { padding-bottom: 4px; border-bottom: 1px solid var(--rule-strong); color: var(--fg); transition: border-color 0.3s var(--ease); }
+.closing-photo__links a:hover { border-bottom-color: var(--fg); }
+
+/* ---------------------------------------------------------------- older components, retuned for blue */
+.duo__item:hover, .door:hover, .mini:hover .mini__art { background: var(--bg-3); }
+.field select option { background: var(--bg-2); color: #F5F0E6; }
+.explorer__panel, .mx__panel { background: var(--bg-2); }
+.group, .closing { box-shadow: none; }
+.closing, .footer { background: var(--deep); }
+
+/* A photograph for each import sector */
+.panel__media { margin: calc(-1 * clamp(28px, 3vw, 40px)) calc(-1 * clamp(28px, 3vw, 40px)) 24px; aspect-ratio: 16 / 9; overflow: hidden; background: var(--bg-3); }
+.panel__media img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------------------------------------------------------------- footer */
+.footer { padding-top: 40px; }
+.footer__top { padding-top: 56px; }
+.footer__brand { grid-column: 1 / 4; }
+.footer__col--group { grid-column: 4 / 6; }
+.footer__col--biz { grid-column: 6 / 8; }
+.footer__col--req { grid-column: 8 / 10; }
+.footer__col--contact { grid-column: 10 / 13; }
+.footer__col--contact p { margin-top: 10px; font-size: 0.875rem; line-height: 1.55; color: var(--fg-3); }
+
+/* ---------------------------------------------------------------- WhatsApp, always at hand */
+.wa {
+    position: fixed;
+    right: clamp(16px, 2.4vw, 32px);
+    bottom: clamp(16px, 2.4vw, 32px);
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 999px;
+    color: #fff;
+    background: #1FA855;
+    box-shadow: 0 16px 34px -14px rgba(3, 10, 24, 0.75);
+    transition: transform 0.35s var(--ease), background-color 0.35s var(--ease), opacity 0.4s var(--ease);
+}
+.wa svg { width: 28px; height: 28px; flex: none; }
+.wa span { max-width: 0; overflow: hidden; white-space: nowrap; font-size: 0.875rem; font-weight: 500; transition: max-width 0.45s var(--ease), padding 0.45s var(--ease); }
+.wa:hover { background: #1B9A4D; transform: translateY(-2px); }
+.wa:hover span { max-width: 160px; padding-right: 8px; }
+.boot-on .wa, .masthead.menu-open ~ .wa { opacity: 0; pointer-events: none; }
+
+/* ---------------------------------------------------------------- responsive */
+@media (max-width: 1240px) {
+    .mh-phone { display: none; }
+}
+
+@media (max-width: 1080px) {
+    .footer__brand { grid-column: 1 / -1; margin-bottom: 40px; }
+    .footer__col--group { grid-column: 1 / 4; }
+    .footer__col--biz { grid-column: 4 / 7; }
+    .footer__col--req { grid-column: 7 / 10; }
+    .footer__col--contact { grid-column: 10 / 13; }
+    .hero__text { grid-column: 1 / 11; }
+    .reach__text { grid-column: 1 / 7; }
+    .reach__globe { grid-column: 7 / 13; }
+}
+
+@media (max-width: 860px) {
+    :root, .masthead.is-compact { --header-h: 68px; }
+    .brand__mark, .masthead.is-compact .brand__mark { width: 40px; height: 40px; margin-right: 10px; }
+    .masthead__name { font-size: 1.3125rem; }
+    .mh-cta { display: none; }
+    .footer__col--group, .footer__col--biz, .footer__col--req, .footer__col--contact { grid-column: 1 / -1; margin-bottom: 28px; }
+    .hero__text { grid-column: 1 / -1; }
+    .hero__scroll { display: none; }
+    .hero--page { height: 68svh; }
+    .cf--1, .cf--2, .cf--3, .cf--4 { grid-column: 1 / -1; grid-row: auto; margin-top: 0; }
+    .cf--2, .cf--3 { grid-column: span 6; }
+    .cf--1 .cf__media { aspect-ratio: 4 / 3; }
+    .strip__item { width: 78vw; }
+    .steps__item { grid-column: 1 / -1; }
+    .oil__photo { max-height: none; }
+    .reach__text, .reach__globe { grid-column: 1 / -1; }
+    .reach__globe { margin-top: 56px; }
+    .reach__globe .globe { margin-inline: auto; }
+    .reach__globe .caption { text-align: left; }
+    .closing-photo__title { grid-column: 1 / -1; }
+    .wa { padding: 13px; }
+}
+
+@media (max-width: 560px) {
+    .cf--2, .cf--3 { grid-column: 1 / -1; }
+}
