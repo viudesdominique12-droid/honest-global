@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0A0F1A">
+<title>Honest Global PLC · Trade, Energy, Mobility and Spirits</title>
+<meta name="description" content="Honest Global PLC brings together Honest Global Trading, Honest Oil, Luxury Automobiles and Black Deer Whiskey through a commitment to quality, trust and long-term value.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Honest Global PLC">
+<meta property="og:title" content="Honest Global PLC · Trade, Energy, Mobility and Spirits">
+<meta property="og:description" content="Honest Global PLC brings together Honest Global Trading, Honest Oil, Luxury Automobiles and Black Deer Whiskey through a commitment to quality, trust and long-term value.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+<script>
+    (function (d) {
+        var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+        d.documentElement.classList.add('js', reduce ? 'no-motion' : 'motion');
+        // Never leave content hidden if the animation libraries fail to load.
+        setTimeout(function () { if (!window.gsap) d.documentElement.classList.remove('motion'); }, 4000);
+    })(document);
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="page-home">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead">
+    <div class="masthead__bar">
+        <a class="masthead__name" href="index.html" aria-label="Honest Global PLC, home">Honest Global<span>PLC</span></a>
+
+        <div class="masthead__running" aria-hidden="true"><span class="rh"></span></div>
+
+        <nav class="masthead__nav" aria-label="Primary">
+            <a href="about.html">About</a>
+            <div class="nav-businesses">
+                <button type="button" aria-expanded="false" aria-controls="businesses-panel">Businesses<span class="plus" aria-hidden="true"></span></button>
+                <div class="businesses-panel" id="businesses-panel">
+                    <ul class="businesses-panel__list">
+                        <li><a class="bp-item" href="trading.html"><span class="bp-num">I.</span><span class="bp-name">Honest Global Trading</span><span class="bp-desc">Import sourcing and Ethiopian coffee export</span></a></li>
+                        <li><a class="bp-item" href="oil.html"><span class="bp-num">II.</span><span class="bp-name">Honest Oil</span><span class="bp-desc">The Honest Oil brand and its products</span></a></li>
+                        <li><a class="bp-item" href="automobiles.html"><span class="bp-num">III.</span><span class="bp-name">Luxury Automobiles</span><span class="bp-desc">Prestige vehicles, sourced on demand</span></a></li>
+                        <li><a class="bp-item" href="black-deer.html"><span class="bp-num">IV.</span><span class="bp-name">Black Deer Whiskey</span><span class="bp-desc">A premium spirits brand</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+    </div>
+
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile" data-lenis-prevent>
+        <a href="about.html"><span class="num"></span>About</a>
+        <a href="trading.html"><span class="num">I.</span>Honest Global Trading</a>
+        <a href="oil.html"><span class="num">II.</span>Honest Oil</a>
+        <a href="automobiles.html"><span class="num">III.</span>Luxury Automobiles</a>
+        <a href="black-deer.html"><span class="num">IV.</span>Black Deer Whiskey</a>
+        <a href="contact.html"><span class="num"></span>Contact</a>
+    </nav>
+</header>
+
+<main id="main">
+
+    <!-- ============================== COVER ============================== -->
+    <section class="cover" aria-labelledby="cover-title">
+        <div class="grid cover__meta">
+            <p>Addis Ababa, Ethiopia</p>
+            <p>Trade · Energy · Mobility · Spirits</p>
+        </div>
+
+        <h1 class="cover__title" id="cover-title" aria-label="Honest Global PLC">
+            <span class="fit" data-fit aria-hidden="true"><span class="word">Honest</span> <span class="word">Global</span><span class="cover__plc">PLC</span></span>
+        </h1>
+        <div class="rule-double" aria-hidden="true"></div>
+
+        <div class="grid cover__body">
+            <div class="cover__text">
+                <p class="display-l cover__line" data-split>Four businesses.<br><em>One standard.</em></p>
+                <p class="standfirst">Honest Global PLC brings together international trade and distinctive businesses through a commitment to quality, trust and long-term value.</p>
+                <p class="cover__links">
+                    <a class="link link--lead" href="#chapters">Explore our businesses<span class="arr" aria-hidden="true">→</span></a>
+                    <a class="link" href="#contact">Contact our team<span class="arr" aria-hidden="true">→</span></a>
+                </p>
+            </div>
+            <figure class="cover__plate">
+                <div class="globe" tabindex="0" role="img" aria-label="Interactive globe centred on Addis Ababa. Drag, or use the arrow keys, to turn it.">
+                    <img class="globe__fallback" src="assets/images/globe.svg" width="600" height="600" alt="">
+                    <canvas class="globe__canvas" aria-hidden="true"></canvas>
+                </div>
+                <figcaption class="caption"><span class="fig">Fig.</span>Addis Ababa, 9°01′N 38°44′E. <span class="caption__hint">Drag to turn the globe.</span></figcaption>
+            </figure>
+        </div>
+
+        <nav class="cover__contents" aria-label="Contents">
+            <ol class="grid mini-index" data-stagger>
+                <li><a class="mini" href="#trading"><span class="mini__art"><img src="assets/images/mini-container.svg" width="320" height="240" alt=""></span><span class="mini__num">I.</span><span class="mini__name">Honest Global Trading</span></a></li>
+                <li><a class="mini" href="#oil"><span class="mini__art"><img src="assets/images/mini-oil.svg" width="300" height="420" alt=""></span><span class="mini__num">II.</span><span class="mini__name">Honest Oil</span></a></li>
+                <li><a class="mini" href="#automobiles"><span class="mini__art"><img src="assets/images/mini-car.svg" width="640" height="250" alt=""></span><span class="mini__num">III.</span><span class="mini__name">Luxury Automobiles</span></a></li>
+                <li><a class="mini" href="#black-deer"><span class="mini__art"><img src="assets/images/mini-whisky.svg" width="200" height="420" alt=""></span><span class="mini__num">IV.</span><span class="mini__name">Black Deer Whiskey</span></a></li>
+            </ol>
+        </nav>
+    </section>
+
+    <div id="chapters">
+
+        <!-- ============================== I. TRADING ============================== -->
+        <section class="chapter" id="trading" data-running="&lt;em&gt;I.&lt;/em&gt; Honest Global Trading" aria-labelledby="trading-title">
+            <header class="grid chapter__head" data-rule>
+                <span class="chapter__num">I.</span>
+                <span class="chapter__name">Honest Global Trading</span>
+                <span class="chapter__kind">Import &amp; export</span>
+            </header>
+
+            <div class="grid trading__intro">
+                <h2 class="display-l trading__title" id="trading-title" data-split>Global trade.<br><em>Endless possibilities.</em></h2>
+                <div class="trading__lead">
+                    <a class="link link--lead" href="trading.html" data-fade>Explore trading<span class="arr" aria-hidden="true">→</span></a>
+                </div>
+            </div>
+
+            <div class="grid duo">
+                <a class="duo__item" href="trading.html#imports">
+                    <span class="duo__art">
+                        <svg class="engraving container" viewBox="0 0 320 240" role="img" aria-labelledby="container-title" data-draw-auto>
+                            <title id="container-title">Line drawing of a shipping container.</title>
+                            <path class="e-faint" pathLength="1" d="M10 206 H310"/>
+                            <path class="e-faint" pathLength="1" d="M40 212 H262 M70 218 H232"/>
+                            <path class="e-line" pathLength="1" d="M30 110 L250 110 L250 200 L30 200 Z"/>
+                            <path class="e-line" pathLength="1" d="M30 110 L70 80 L290 80 L250 110 M290 80 L290 170 L250 200"/>
+                            <path class="e-hatch" pathLength="1" d="M40 116 V194 M48 116 V194 M56 116 V194 M64 116 V194 M72 116 V194 M80 116 V194 M88 116 V194 M96 116 V194 M104 116 V194 M112 116 V194 M120 116 V194 M128 116 V194 M136 116 V194 M144 116 V194 M152 116 V194 M160 116 V194 M168 116 V194 M176 116 V194 M184 116 V194 M192 116 V194 M200 116 V194 M208 116 V194 M216 116 V194 M224 116 V194 M232 116 V194 M240 116 V194"/>
+                            <path class="e-faint" pathLength="1" d="M30 116 H250 M30 194 H250"/>
+                            <path class="e-faint" pathLength="1" d="M50 110 L90 80 M90 110 L130 80 M130 110 L170 80 M170 110 L210 80 M210 110 L250 80"/>
+                            <path class="e-line" pathLength="1" d="M270 95 L270 185"/>
+                            <path class="e-faint" pathLength="1" d="M257.2 108.6 L257.2 190.6 M264.4 103.2 L264.4 185.2 M275.6 94.8 L275.6 176.8 M282.8 89.4 L282.8 171.4 M264.4 148 L268.6 145 M275.6 140 L279.8 137"/>
+                        </svg>
+                    </span>
+                    <span class="duo__dir">The world<em>→</em>Ethiopia</span>
+                    <span class="duo__title">Imports</span>
+                    <span class="duo__line">Twenty-five sectors, sourced on request.</span>
+                </a>
+                <a class="duo__item" href="trading.html#coffee">
+                    <span class="duo__art">
+                        <svg class="engraving sack" viewBox="0 0 260 320" role="img" aria-labelledby="sack-title" data-draw-auto>
+                            <title id="sack-title">Line drawing of a jute coffee sack marked Product of Ethiopia.</title>
+                            <defs>
+                                <pattern id="weave" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                                    <path d="M0 0 V7 M0 0 H7" fill="none" stroke="#6B8CB5" stroke-opacity="0.35" stroke-width="0.6"/>
+                                </pattern>
+                            </defs>
+                            <path class="e-faint" pathLength="1" d="M30 302 H230"/>
+                            <path class="e-faint" pathLength="1" d="M60 308 H200 M90 313 H170"/>
+                            <path class="sack__weave" data-draw-fade fill="url(#weave)" d="M70 292 C100 304 160 304 190 292 C205 252 210 170 197 112 C191 94 172 86 152 80 L146 66 C152 56 158 44 152 34 C145 41 138 45 130 47 C122 45 115 41 108 34 C102 44 108 56 114 66 L108 80 C88 86 69 94 63 112 C50 170 55 252 70 292 Z"/>
+                            <path class="e-line" pathLength="1" d="M70 292 C100 304 160 304 190 292 C205 252 210 170 197 112 C191 94 172 86 152 80 L146 66 C152 56 158 44 152 34 C145 41 138 45 130 47 C122 45 115 41 108 34 C102 44 108 56 114 66 L108 80 C88 86 69 94 63 112 C50 170 55 252 70 292 Z"/>
+                            <path class="e-line" pathLength="1" d="M112 68 C124 73 136 73 148 68 M113 74 C125 79 135 79 147 74"/>
+                            <path class="e-faint" pathLength="1" d="M84 120 C90 180 88 240 80 286 M178 120 C172 180 174 240 182 286"/>
+                            <g class="sack__stamp" data-draw-fade transform="rotate(-3 130 190)">
+                                <text class="s-big" x="130" y="176" text-anchor="middle">ETHIOPIAN</text>
+                                <text class="s-it" x="130" y="203" text-anchor="middle">Coffee</text>
+                                <text class="s-small" x="130" y="224" text-anchor="middle">PRODUCT OF ETHIOPIA</text>
+                            </g>
+                        </svg>
+                    </span>
+                    <span class="duo__dir">Ethiopia<em>→</em>The world</span>
+                    <span class="duo__title">Exports</span>
+                    <span class="duo__line">Ethiopian coffee, and nothing else.</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ============================== II. HONEST OIL ============================== -->
+        <section class="chapter" id="oil" data-running="&lt;em&gt;II.&lt;/em&gt; Honest Oil" aria-labelledby="oil-title">
+            <header class="grid chapter__head" data-rule>
+                <span class="chapter__num">II.</span>
+                <span class="chapter__name">Honest Oil</span>
+                <span class="chapter__kind">Energy</span>
+            </header>
+
+            <div class="grid oil__body">
+                <figure class="oil__figure">
+                    <div class="plate oil__plate">
+                        <svg class="bottle" viewBox="0 0 300 420" role="img" aria-labelledby="bottle-title" data-bottle="pin">
+                            <title id="bottle-title">Line drawing of the proposed Honest Oil 5 litre container, front elevation, filling with oil.</title>
+                            <defs>
+                                <clipPath id="bottle-body">
+                                    <path d="M40 134 Q40 120 54 120 L246 120 Q260 120 260 134 L260 376 Q260 390 246 390 L54 390 Q40 390 40 376 Z"/>
+                                </clipPath>
+                                <clipPath id="bottle-level">
+                                    <rect class="b-level" x="0" y="392" width="300" height="400"/>
+                                </clipPath>
+                                <clipPath id="bottle-cap">
+                                    <rect x="200" y="56" width="40" height="36" rx="3"/>
+                                </clipPath>
+                            </defs>
+
+                            <path class="b-faint b-ground" pathLength="1" d="M6 398 H294"/>
+
+                            <g clip-path="url(#bottle-body)">
+                                <g clip-path="url(#bottle-level)">
+                                    <path class="b-fill" d=""/>
+                                </g>
+                                <path class="b-surface" d="M40 392 H260"/>
+                            </g>
+
+                            <path class="b-line b-outline" pathLength="1" d="M40 376 Q40 390 54 390 L246 390 Q260 390 260 376 L260 134 Q260 120 246 120 L236 120 L236 98 L242 98 L242 92 L198 92 L198 98 L204 98 L204 120 L172 120 L172 70 Q172 48 150 48 L62 48 Q40 48 40 70 Z"/>
+                            <rect class="b-line b-hole" pathLength="1" x="62" y="66" width="88" height="38" rx="12"/>
+
+                            <g class="b-capgroup">
+                                <rect class="b-line b-cap" pathLength="1" x="200" y="56" width="40" height="36" rx="3"/>
+                                <g clip-path="url(#bottle-cap)">
+                                    <path class="b-faint b-ridges" d="M196 60 V88 M201 60 V88 M206 60 V88 M211 60 V88 M216 60 V88 M221 60 V88 M226 60 V88 M231 60 V88 M236 60 V88 M241 60 V88 M246 60 V88"/>
+                                </g>
+                            </g>
+
+                            <g clip-path="url(#bottle-body)" class="b-hatch">
+                                <path pathLength="1" d="M257 120 V390 M254 120 V390 M251 120 V390 M247.5 120 V390 M244 120 V390 M240 120 V390 M236 120 V390 M231.5 120 V390 M226.5 120 V390 M221 120 V390 M215 120 V390 M208 120 V390"/>
+                            </g>
+                            <path class="b-faint b-highlight" pathLength="1" d="M50 140 V372"/>
+
+                            <rect class="b-line b-panel" pathLength="1" x="66" y="166" width="168" height="190" rx="6"/>
+                            <rect class="b-faint b-inner" pathLength="1" x="72" y="172" width="156" height="178" rx="3"/>
+                            <g class="b-type">
+                                <text class="b-word" x="152" y="236" text-anchor="middle">HONEST</text>
+                                <text class="b-word-it" x="150" y="266" text-anchor="middle">Oil</text>
+                                <path class="b-faint" d="M128 284 H172"/>
+                                <text class="b-small" x="151" y="334" text-anchor="middle">5 L</text>
+                            </g>
+
+                            <g class="b-callouts">
+                                <path class="b-faint" pathLength="1" d="M240 66 L270 54"/>
+                                <path class="b-faint" pathLength="1" d="M47 55 L22 38"/>
+                                <path class="b-faint" pathLength="1" d="M234 334 L270 348"/>
+                            </g>
+                            <g class="b-letters">
+                                <text class="b-letter" x="276" y="58">a</text>
+                                <text class="b-letter" x="12" y="38">b</text>
+                                <text class="b-letter" x="276" y="352">c</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <figcaption class="caption">
+                        <span class="fig">Fig. II</span>5 L container, front elevation. Packaging concept in development.
+                        <span class="legend"><span><em>a</em> Screw cap</span><span><em>b</em> Integrated handle</span><span><em>c</em> Label panel</span></span>
+                    </figcaption>
+                </figure>
+
+                <div class="oil__text">
+                    <h2 class="display-l" id="oil-title" data-split>Powering<br><em>possibilities.</em></h2>
+                    <p class="standfirst" data-fade>A dedicated platform for the Honest Oil brand and its oil-related products, built around quality, reliability and confidence in every application.</p>
+                    <dl class="spec" data-spec>
+                        <div><dt>Brand</dt><dd>Honest Oil</dd></div>
+                        <div><dt>Format</dt><dd>5 L container</dd></div>
+                        <div><dt>Product category</dt><dd class="tbc">To be confirmed</dd></div>
+                        <div><dt>Specifications</dt><dd class="tbc">Published once verified</dd></div>
+                    </dl>
+                    <a class="link" href="oil.html" data-fade>Discover Honest Oil<span class="arr" aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================== III. AUTOMOBILES ============================== -->
+        <section class="chapter" id="automobiles" data-running="&lt;em&gt;III.&lt;/em&gt; Luxury Automobiles" aria-labelledby="auto-title">
+            <header class="grid chapter__head" data-rule>
+                <span class="chapter__num">III.</span>
+                <span class="chapter__name">Luxury Automobiles</span>
+                <span class="chapter__kind">Sourcing on demand</span>
+            </header>
+
+            <div class="grid">
+                <h2 class="display-xl auto__title" id="auto-title" data-split>We have the keys so you can drive <em>your dreams.</em></h2>
+            </div>
+
+            <div class="grid auto__plate">
+                <div class="car-plate">
+                    <svg class="engraving car" viewBox="0 0 640 250" role="img" aria-labelledby="car-title" data-draw-auto data-car>
+                        <title id="car-title">Blueprint-style line drawing of a luxury saloon, side elevation.</title>
+                        <defs>
+                            <clipPath id="car-body"><path d="M44 192 L112.25 192 A41 41 0 1 1 187.75 192 L462.25 192 A41 41 0 1 1 537.75 192 L598 192 C606 190 612 184 613 176 C614 166 612 156 606 150 C590 142 560 136 520 132 L452 128 C430 112 405 92 382 82 C350 72 280 70 236 78 C205 86 172 102 148 112 C120 116 90 118 66 122 C48 126 38 136 36 150 C35 166 36 182 44 192 Z"/></clipPath>
+                        </defs>
+                        <path class="e-faint" pathLength="1" d="M10 210 H630"/>
+                        <path class="e-faint" pathLength="1" d="M70 216 H580 M110 221 H540 M170 226 H480"/>
+                        <g clip-path="url(#car-body)"><path class="e-hatch" pathLength="1" d="M20 152 H620 M20 156 H620 M20 160 H620 M20 164 H620 M20 168 H620 M20 172 H620 M20 176 H620 M20 180 H620 M20 184 H620 M20 188 H620"/></g>
+                        <path class="e-line" pathLength="1" d="M44 192 L112.25 192 A41 41 0 1 1 187.75 192 L462.25 192 A41 41 0 1 1 537.75 192 L598 192 C606 190 612 184 613 176 C614 166 612 156 606 150 C590 142 560 136 520 132 L452 128 C430 112 405 92 382 82 C350 72 280 70 236 78 C205 86 172 102 148 112 C120 116 90 118 66 122 C48 126 38 136 36 150 C35 166 36 182 44 192 Z"/>
+                        <path class="e-line" pathLength="1" d="M444 122 C424 107 402 93 383 88 C351 80 291 78 247 84 C226 88 208 96 196 106 L192 121 Z"/>
+                        <path class="e-line" pathLength="1" d="M328 80 L332 122"/>
+                        <path class="e-faint" pathLength="1" d="M60 136 C180 129 420 131 604 154"/>
+                        <path class="e-faint" pathLength="1" d="M446 124 C449 150 449 170 445 190 M331 121 L329 192 M214 106 C210 135 208 158 204 178"/>
+                        <path class="e-line" pathLength="1" d="M410 142 H428 M292 142 H310"/>
+                        <path class="e-line" pathLength="1" d="M452 126 C458 118 468 116 476 120 C472 127 462 129 452 127 Z"/>
+                        <path class="e-line" pathLength="1" d="M606 152 C592 148 578 148 566 151 C574 158 592 160 608 158 Z"/>
+                        <path class="e-line" pathLength="1" d="M38 140 C48 135 60 132 72 131 C67 139 55 143 39 147 Z"/>
+                        <circle class="e-line" pathLength="1" cx="150" cy="176" r="34"/>
+                        <circle class="e-faint" pathLength="1" cx="150" cy="176" r="25"/>
+                        <g class="car__spokes" data-origin="150 176">
+                            <path class="e-faint" pathLength="1" d="M157 176 L174 176 M155.7 180.1 L169.4 190.1 M152.2 182.7 L157.4 198.8 M147.8 182.7 L142.6 198.8 M144.3 180.1 L130.6 190.1 M143 176 L126 176 M144.3 171.9 L130.6 161.9 M147.8 169.3 L142.6 153.2 M152.2 169.3 L157.4 153.2 M155.7 171.9 L169.4 161.9"/>
+                            <circle class="e-line" cx="150" cy="176" r="5"/>
+                        </g>
+                        <circle class="e-line" pathLength="1" cx="500" cy="176" r="34"/>
+                        <circle class="e-faint" pathLength="1" cx="500" cy="176" r="25"/>
+                        <g class="car__spokes" data-origin="500 176">
+                            <path class="e-faint" pathLength="1" d="M507 176 L524 176 M505.7 180.1 L519.4 190.1 M502.2 182.7 L507.4 198.8 M497.8 182.7 L492.6 198.8 M494.3 180.1 L480.6 190.1 M493 176 L476 176 M494.3 171.9 L480.6 161.9 M497.8 169.3 L492.6 153.2 M502.2 169.3 L507.4 153.2 M505.7 171.9 L519.4 161.9"/>
+                            <circle class="e-line" cx="500" cy="176" r="5"/>
+                        </g>
+                        <g data-draw-fade>
+                            <path class="e-faint" d="M150 236 H500 M150 231 V241 M500 231 V241"/>
+                            <text class="e-label" x="325" y="248" text-anchor="middle">Wheelbase</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="grid auto__body">
+                <div class="auto__text">
+                    <a class="link link--lead" href="automobiles.html" data-fade>Find your dream car<span class="arr" aria-hidden="true">→</span></a>
+                    <p class="note" data-fade>Not an authorized dealer. Every vehicle is subject to availability and Ethiopian import requirements.</p>
+                </div>
+                <div class="auto__marques">
+                    <ul class="marques" aria-label="Marques we accept requests for" data-rollcall>
+                        <li>Rolls-Royce</li> <li>Bentley</li> <li>Mercedes-Maybach</li> <li>Porsche</li> <li>Range Rover</li> <li>Ferrari</li> <li>Lamborghini</li> <li>McLaren</li> <li>Aston Martin</li> <li>Bugatti</li> <li class="marques__last"><em>and the one you have in mind.</em></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================== IV. BLACK DEER ============================== -->
+        <section class="chapter chapter--deer" id="black-deer" data-running="&lt;em&gt;IV.&lt;/em&gt; Black Deer Whiskey" aria-labelledby="deer-title">
+            <header class="grid chapter__head" data-rule>
+                <span class="chapter__num">IV.</span>
+                <span class="chapter__name">Black Deer Whiskey</span>
+                <span class="chapter__kind">Premium spirits</span>
+            </header>
+
+            <div class="grid deer__body">
+                <h2 class="display-l deer__title" id="deer-title" data-split>Character.<br>Craft.<br><em>Distinction.</em></h2>
+
+                <figure class="deer__figure">
+                    <div class="plate-fig deer__plate">
+                        <svg class="engraving whisky" viewBox="0 0 200 420" role="img" aria-labelledby="whisky-title" data-draw-auto data-liquid="44 156 140 400 200">
+                            <title id="whisky-title">Line drawing of a Black Deer Whiskey bottle, filling with whiskey.</title>
+                            <defs>
+                                <clipPath id="whisky-body"><path d="M52 400 Q44 400 44 392 L44 192 C44 166 64 156 82 150 C85 149 86 146 86 142 L86 100 L114 100 L114 142 C114 146 115 149 118 150 C136 156 156 166 156 192 L156 392 Q156 400 148 400 Z"/></clipPath>
+                                <clipPath id="whisky-level"><rect class="liq-level" x="0" y="402" width="200" height="420"/></clipPath>
+                            </defs>
+                            <path class="e-faint" pathLength="1" d="M20 404 H180"/>
+                            <path class="e-faint" pathLength="1" d="M40 409 H160 M62 414 H138"/>
+                            <g clip-path="url(#whisky-body)">
+                                <g clip-path="url(#whisky-level)"><path class="liq-fill" d=""/></g>
+                                <path class="liq-surface" d=""/>
+                            </g>
+                            <path class="e-line" pathLength="1" d="M52 400 Q44 400 44 392 L44 192 C44 166 64 156 82 150 C85 149 86 146 86 142 L86 100 L114 100 L114 142 C114 146 115 149 118 150 C136 156 156 166 156 192 L156 392 Q156 400 148 400 Z"/>
+                            <rect class="e-line" pathLength="1" x="82" y="92" width="36" height="8" rx="1"/>
+                            <path class="e-line" pathLength="1" d="M78 92 L78 72 Q78 64 86 64 L114 64 Q122 64 122 72 L122 92 Z"/>
+                            <path class="e-faint" pathLength="1" d="M78 76 H122 M78 82 H122"/>
+                            <path class="e-faint" pathLength="1" d="M56 200 V388 M62 206 V382"/>
+                            <rect class="e-line whisky__label" pathLength="1" x="56" y="236" width="88" height="110" rx="2"/>
+                            <g class="whisky__print" data-draw-fade>
+                                <g class="w-antler" transform="translate(83 242) scale(0.142)">
+                                    <path d="M130 186 C160 176 182 146 184 112 C186 82 180 58 168 38 M167.5 158 C160 148 154 138 150 124 M182 127 C174 116 166 108 160 98 M183 83 C190 74 197 66 204 58"/>
+                                    <path d="M110 186 C80 176 58 146 56 112 C54 82 60 58 72 38 M72.5 158 C80 148 86 138 90 124 M58 127 C66 116 74 108 80 98 M57 83 C50 74 43 66 36 58"/>
+                                    <path d="M120 191 L127 198 L120 205 L113 198 Z"/>
+                                </g>
+                                <text class="w-name" x="100" y="296" text-anchor="middle">BLACK DEER</text>
+                                <text class="w-kind" x="100" y="312" text-anchor="middle">Whiskey</text>
+                                <path class="w-rule" d="M86 322 H114"/>
+                                <text class="w-line" x="100" y="334" text-anchor="middle">A CHARACTER OF ITS OWN</text>
+                            </g>
+                        </svg>
+                    </div>
+                </figure>
+
+                <div class="deer__text">
+                    <a class="link link--lead" href="black-deer.html" data-fade>Discover Black Deer<span class="arr" aria-hidden="true">→</span></a>
+                    <p class="note" data-fade>For adults of legal drinking age. Please enjoy responsibly.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ============================== THE GROUP ============================== -->
+    <section class="group on-paper" id="group" data-running="The Group" aria-labelledby="group-title">
+        <header class="grid chapter__head" data-rule>
+            <span class="chapter__num"></span>
+            <span class="chapter__name">The Group</span>
+            <span class="chapter__kind">A note on how we work</span>
+        </header>
+
+        <div class="grid group__body">
+            <div class="group__left">
+                <h2 class="display-l" id="group-title" data-split>Built on trust.<br><em>Driven by ambition.</em></h2>
+                <div class="seal" aria-hidden="true">
+                    <img class="seal__fallback" src="assets/images/seal.svg" width="312" height="312" alt="">
+                    <canvas class="seal__canvas"></canvas>
+                </div>
+            </div>
+            <div class="group__text" data-stagger>
+                <p>Lasting business is earned one relationship at a time. Every supplier, buyer and partner is held to the same standard: clarity in what we promise, care in how we deliver.</p>
+                <p>Trade, energy, mobility and spirits are distinct markets. The way we work in each of them is the same. We would rather say less and deliver more.</p>
+                <p class="signature">Honest Global PLC, Addis Ababa</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== CONTACT ============================== -->
+    <section class="closing" id="contact" data-running="Contact" aria-labelledby="closing-title">
+        <header class="grid chapter__head" data-rule>
+            <span class="chapter__num"></span>
+            <span class="chapter__name">Contact</span>
+            <span class="chapter__kind">Addis Ababa, Ethiopia</span>
+        </header>
+
+        <div class="grid">
+            <h2 class="display-xl closing__title" id="closing-title" data-split>Let’s build something <em>exceptional.</em></h2>
+        </div>
+
+        <div class="grid closing__body">
+            <div class="closing__text">
+                <p class="standfirst" data-fade>Whether you are looking for products, exploring a business opportunity, or interested in working with one of our brands, our team is ready to hear from you.</p>
+                <a class="link link--lead" href="contact.html" data-fade>Start a conversation<span class="arr" aria-hidden="true">→</span></a>
+            </div>
+            <dl class="closing__details" data-stagger>
+                <div><dt>Head office</dt><dd>Addis Ababa, Ethiopia</dd></div>
+                <div><dt>General enquiries</dt><dd class="tbc">Contact details to follow</dd></div>
+                <div>
+                    <dt>Specific requests</dt>
+                    <dd>
+                        <a href="trading.html#sourcing">Product sourcing</a>
+                        <a href="trading.html#coffee">Coffee export quotation</a>
+                        <a href="automobiles.html#request">Vehicle request</a>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="grid footer__top" data-rule>
+        <div class="footer__brand">
+            <a class="footer__name" href="index.html">Honest Global<span>PLC</span></a>
+            <p>Addis Ababa, Ethiopia</p>
+        </div>
+        <nav class="footer__col footer__col--group" aria-label="Group">
+            <h3>Group</h3>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <nav class="footer__col footer__col--biz" aria-label="Businesses">
+            <h3>Businesses</h3>
+            <a href="trading.html">Honest Global Trading</a>
+            <a href="oil.html">Honest Oil</a>
+            <a href="automobiles.html">Luxury Automobiles</a>
+            <a href="black-deer.html">Black Deer Whiskey</a>
+        </nav>
+        <nav class="footer__col footer__col--req" aria-label="Requests">
+            <h3>Requests</h3>
+            <a href="trading.html#sourcing">Product sourcing</a>
+            <a href="trading.html#coffee">Coffee export quotation</a>
+            <a href="automobiles.html#request">Vehicle request</a>
+        </nav>
+    </div>
+    <div class="grid footer__bottom">
+        <p>© <span data-year>2026</span> Honest Global PLC</p>
+        <p>Products are available for sourcing on request, subject to availability and applicable import regulations.</p>
+        <p class="footer__legal"><a href="#">Privacy</a><a href="#">Terms</a></p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-array@3.2.4/dist/d3-array.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-geo@3.1.1/dist/d3-geo.min.js"></script>
+<script src="assets/js/land.js"></script>
+<script src="assets/js/engraving.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

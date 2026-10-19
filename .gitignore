@@ -1,0 +1,8 @@
+# Local working files, not part of the published site
+moodboard.html
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
