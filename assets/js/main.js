@@ -94,10 +94,6 @@
         };
     }
     var bottles = $$('[data-bottle]').map(createBottle);
-    $$('[data-liquid]').forEach(function (svg) {
-        var spec = svg.getAttribute('data-liquid').split(/\s+/).map(Number);
-        svg._liquid = createLiquid(svg, { fill: '.liq-fill', surface: '.liq-surface', level: '.liq-level' }, spec);
-    });
 
     /* ------------------------------------------------ Smooth scroll */
     if (motion && window.Lenis) {
@@ -157,38 +153,6 @@
 
     var year = $('[data-year]');
     if (year) year.textContent = new Date().getFullYear();
-
-    /* ------------------------------------------------ Age gate (Black Deer) */
-    var gateReady = (function () {
-        var gate = $('[data-age-gate]');
-        if (!gate || !html.classList.contains('gate-pending')) {
-            if (gate) gate.remove();
-            return Promise.resolve();
-        }
-        if (lenis) lenis.stop();
-        var yes = $('[data-age-yes]', gate);
-        var no = $('[data-age-no]', gate);
-        var msg = $('[data-age-msg]', gate);
-        var actions = $('.age-gate__actions', gate);
-        setTimeout(function () { yes.focus(); }, 60);
-        return new Promise(function (resolve) {
-            yes.addEventListener('click', function () {
-                try { localStorage.setItem('hg-age-ok', '1'); } catch (err) { /* private mode */ }
-                function done() {
-                    html.classList.remove('gate-pending');
-                    gate.remove();
-                    if (lenis) lenis.start();
-                }
-                if (motion) gsap.to(gate, { autoAlpha: 0, duration: 0.8, ease: 'power2.inOut', onComplete: done });
-                else done();
-                resolve();
-            });
-            no.addEventListener('click', function () {
-                actions.hidden = true;
-                msg.hidden = false;
-            });
-        });
-    })();
 
     /* ------------------------------------------------ Forms: field options and pre-selection */
     $$('select[data-sectors]').forEach(function (sel) {
@@ -524,25 +488,14 @@
         return tl;
     }
 
-    /* Any engraving: strokes are drafted, liquids rise, printed details appear */
+    /* Any engraving: strokes are drafted, printed details appear */
     function drawTimeline(svg) {
         var strokes = $$('[pathLength]', svg);
         var fades = $$('[data-draw-fade]', svg);
-        var liq = svg._liquid;
         gsap.set(strokes, { strokeDasharray: 1, strokeDashoffset: 1 });
         gsap.set(fades, { autoAlpha: 0 });
         var tl = gsap.timeline();
         tl.to(strokes, { strokeDashoffset: 0, duration: 1.4, stagger: { amount: 1.8 }, ease: 'power2.inOut' });
-        if (liq) {
-            liq.state.level = liq.bottom;
-            liq.state.amp = 2.2;
-            liq.draw();
-            tl.to(liq.state, {
-                level: liq.target, duration: 2.2, ease: 'power1.inOut',
-                onUpdate: function () { liq.state.phase += 0.12; liq.draw(); }
-            }, '-=0.9')
-                .to(liq.state, { amp: 0.8, duration: 0.9, onUpdate: liq.draw }, '-=0.5');
-        }
         tl.to(fades, { autoAlpha: 1, duration: 0.9, stagger: 0.08, ease: 'power2.out' }, '-=0.8');
         return tl;
     }
@@ -558,12 +511,6 @@
             .to(g, { lon: lon, duration: 3.4, ease: 'expo.out', onUpdate: globe.request }, at)
             .to(g, { marker: 1, duration: 1.2, onUpdate: globe.request }, at + 1.5)
             .to(g, { routes: 1, duration: 2, ease: 'power2.inOut', onUpdate: globe.request }, at + 1.7);
-    }
-
-    function labelReveal(label) {
-        return gsap.timeline()
-            .fromTo(label, { clipPath: 'inset(100% 0% 0% 0%)', y: 40 }, { clipPath: 'inset(0% 0% 0% 0%)', y: 0, duration: 1.8, ease: 'expo.inOut' })
-            .fromTo($$('.label__inner > *', label), { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 1.1, stagger: 0.1, ease: EASE }, 0.9);
     }
 
     /* Home opening: the page is "printed" */
@@ -606,7 +553,6 @@
         var figs = $$('.opener__figure, .opener__wide', op);
         if (figs.length) tl.fromTo(figs, { autoAlpha: 0 }, { autoAlpha: 1, duration: 1.2, ease: 'power2.out' }, 0.7);
         bottles.filter(function (x) { return op.contains(x.el); }).forEach(function (b) { tl.add(bottleTimeline(b), 1.0); });
-        $$('[data-label]', op).forEach(function (lab) { tl.add(labelReveal(lab), 0.8); });
         $$('[data-draw-auto]', op).forEach(function (svg) { tl.add(drawTimeline(svg), 0.9); });
         if (globeEl && op.contains(globeEl)) globeIntro(tl, 0.5);
     }
@@ -757,13 +703,6 @@
             });
         });
 
-        /* Labels lifted into view (outside an opener) */
-        $$('[data-label]').forEach(function (label) {
-            if (label.closest('.opener')) return;
-            var tl = labelReveal(label).pause();
-            ScrollTrigger.create({ trigger: label, start: 'top 80%', once: true, onEnter: function () { tl.play(); } });
-        });
-
         /* Seals: rings turning like a movement */
         seals.forEach(function (s) {
             var section = s.el.closest('section') || s.el;
@@ -778,18 +717,18 @@
         });
 
         /* Home: the paper page slides over the last chapter */
-        var deer = $('.chapter--deer');
+        var last = $('.chapter--turn');
         var group = $('.group');
-        if (deer && group) {
+        if (last && group) {
             mm.add('(min-width: 861px)', function () {
                 ScrollTrigger.create({
-                    trigger: deer,
+                    trigger: last,
                     start: 'bottom bottom',
                     end: function () { return '+=' + window.innerHeight; },
                     pin: true,
                     pinSpacing: false
                 });
-                gsap.fromTo(deer, { '--dim': 0 }, {
+                gsap.fromTo(last, { '--dim': 0 }, {
                     '--dim': 0.7, ease: 'none',
                     scrollTrigger: { trigger: group, start: 'top bottom', end: 'top top', scrub: true }
                 });
@@ -797,7 +736,7 @@
         }
     }
 
-    Promise.all([fontsReady(), gateReady]).then(function () {
+    fontsReady().then(function () {
         if (fitEl) homeIntro();
         else openerIntro();
         scrollScenes();

@@ -465,51 +465,6 @@ figure { margin: 0; }
 .marques li:not(:last-child)::after { content: ","; color: var(--fg-3); }
 .marques__last em { font-style: italic; color: var(--fg-2); }
 
-/* IV. Black Deer */
-.deer__body { align-items: stretch; }
-.deer__title { grid-column: 1 / 5; align-self: start; }
-.deer__figure { grid-column: 5 / 9; display: flex; flex-direction: column; align-items: center; }
-.deer__text { grid-column: 10 / 13; align-self: end; }
-.deer__text .standfirst { margin-bottom: 28px; }
-.deer__text .note { margin-top: 24px; }
-.deer__figure .caption { text-align: center; margin-top: 20px; }
-
-.label {
-    width: min(100%, 300px);
-    aspect-ratio: 3 / 4;
-    padding: 12px;
-    background: var(--paper);
-    color: var(--ink);
-    border-radius: 150px 150px 4px 4px / 112px 112px 4px 4px;
-}
-.label__inner {
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 28px 20px 24px;
-    text-align: center;
-    border: 1px solid rgba(10, 15, 26, 0.6);
-    border-radius: 138px 138px 2px 2px / 100px 100px 2px 2px;
-}
-.label__inner::before {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    border: 1px solid rgba(10, 15, 26, 0.22);
-    border-radius: 134px 134px 1px 1px / 96px 96px 1px 1px;
-    pointer-events: none;
-}
-.label__pre { font: 500 0.5625rem/1 var(--sans); letter-spacing: 0.26em; text-transform: uppercase; color: rgba(10, 15, 26, 0.6); margin-bottom: 22px; }
-.label__name { font: 500 2.25rem/1 var(--serif); letter-spacing: 0.14em; text-transform: uppercase; padding-left: 0.14em; }
-.label__kind { margin-top: 12px; font: italic 400 1.5rem/1 var(--serif); }
-.label__orn { display: flex; align-items: center; gap: 10px; width: 56%; margin: 22px 0 18px; }
-.label__orn::before, .label__orn::after { content: ""; flex: 1; height: 1px; background: rgba(10, 15, 26, 0.5); }
-.label__orn span { width: 6px; height: 6px; border: 1px solid rgba(10, 15, 26, 0.7); transform: rotate(45deg); }
-.label__line { font: 500 0.5625rem/1.4 var(--sans); letter-spacing: 0.24em; text-transform: uppercase; color: rgba(10, 15, 26, 0.7); }
-
 /* The Group */
 .group__body { align-items: start; }
 .group__left { grid-column: 1 / 6; display: flex; flex-direction: column; gap: clamp(48px, 6vw, 88px); }
@@ -638,9 +593,9 @@ html.lenis { scroll-behavior: auto; }
 .motion .page-home .masthead.is-docked .masthead__name,
 .motion .page-home .masthead.menu-open .masthead__name { opacity: 1; transform: none; }
 
-/* Page turn: the paper section slides over Black Deer */
-.chapter--deer { position: relative; z-index: 1; }
-.chapter--deer::after {
+/* Page turn: the paper section slides over the last chapter */
+.chapter--turn { position: relative; z-index: 1; }
+.chapter--turn::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -677,9 +632,6 @@ html.lenis { scroll-behavior: auto; }
     .imports__search { grid-column: 1 / 8; }
     .explorer__list { grid-column: 1 / 7; columns: 1; }
     .explorer__panel { grid-column: 7 / 13; }
-    .deer__title { grid-column: 1 / 7; }
-    .deer__figure { grid-column: 7 / 13; }
-    .deer__text { grid-column: 1 / 7; margin-top: 56px; }
     .footer__brand { grid-column: 1 / -1; margin-bottom: 40px; }
     .footer__col--group { grid-column: 1 / 4; }
     .footer__col--biz { grid-column: 4 / 8; }
@@ -710,9 +662,6 @@ html.lenis { scroll-behavior: auto; }
 
     .auto__title, .auto__text, .auto__marques { grid-column: 1 / -1; }
     .auto__marques { margin-top: 56px; }
-
-    .deer__title, .deer__figure, .deer__text { grid-column: 1 / -1; }
-    .deer__figure { margin: 56px 0 0; }
 
     .group__left, .group__text { grid-column: 1 / -1; }
     .group__text { columns: 1; margin-top: 56px; }

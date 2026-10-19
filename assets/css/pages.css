@@ -89,21 +89,6 @@
 
 .engraving .e-label { font: 500 7.5px var(--sans); letter-spacing: 2.4px; text-transform: uppercase; fill: currentColor; fill-opacity: 0.6; }
 
-/* Liquids (whiskey, glass) */
-.engraving .liq-fill { fill: none; stroke: #C99A64; stroke-opacity: 0.78; stroke-width: 0.6; }
-.engraving .liq-surface { fill: none; stroke: #C29462; stroke-width: 0.9; }
-
-/* Whiskey bottle: a paper label printed in ink */
-.whisky .whisky__label { fill: var(--paper); }
-.whisky .whisky__print { color: var(--ink); }
-.whisky .whisky__print text { fill: var(--ink); }
-.whisky .whisky__print path { fill: none; stroke: currentColor; stroke-linecap: round; }
-.whisky .w-antler path { stroke-width: 9; }
-.whisky .w-rule { stroke-width: 0.5; stroke-opacity: 0.6; }
-.whisky .w-name { font: 500 9px var(--serif); letter-spacing: 1.6px; }
-.whisky .w-kind { font: italic 400 10px var(--serif); }
-.whisky .w-line { font: 500 3.6px var(--sans); letter-spacing: 0.8px; }
-
 /* Coffee sack stamp */
 .sack .sack__weave { stroke: none; }
 .sack .sack__stamp text { fill: var(--accent); }
@@ -118,8 +103,6 @@
 .auto__plate { margin-bottom: clamp(48px, 6vw, 88px); }
 .auto__plate .car-plate { grid-column: 1 / -1; }
 .auto__text .note { margin-top: 22px; }
-.deer__figure .deer__plate { width: 100%; }
-.deer__text .link--lead { margin-bottom: 4px; }
 
 /* Paired drawings (imports and exports) */
 .duo { row-gap: var(--gutter); }
@@ -140,9 +123,9 @@
 .duo__item:hover { background: #111A2B; }
 .duo__item:hover .duo__title { font-style: italic; }
 
-/* Visual index of the four businesses */
+/* Visual index of the three businesses */
 .mini-index { row-gap: 32px; }
-.mini-index li { grid-column: span 3; }
+.mini-index li { grid-column: span 4; }
 .mini { display: block; }
 .mini__art { position: relative; display: block; aspect-ratio: 5 / 4; background: var(--ink-raised); transition: background-color 0.4s var(--ease); }
 .mini__art img { position: absolute; top: 12%; left: 12%; width: 76%; height: 76%; object-fit: contain; transition: transform 0.8s var(--ease); }
@@ -199,8 +182,6 @@
 .request { align-items: start; }
 .request__intro { grid-column: 1 / 5; position: sticky; top: calc(var(--header-h) + 40px); }
 .request__intro .standfirst { margin: 26px 0 0; }
-.request__art { width: min(100%, 300px); aspect-ratio: 200 / 220; margin-top: 36px; }
-.request__art svg { width: 100%; height: 100%; }
 .request__intro .note { margin-top: 20px; }
 .request__form { grid-column: 6 / 13; }
 
@@ -342,67 +323,6 @@
 .label-detail__text { grid-column: 8 / 13; }
 .label-detail__text .note { margin-top: 24px; }
 
-/* ---------------------------------------------------------------- black deer */
-.theme-deer {
-    --ink: #0C0A08;
-    --ink-raised: #16110C;
-    --paper: #F2EBDD;
-    --sky: #C29462;
-    --steel: #7A5B3A;
-    --fg: #F2EBDD;
-    --fg-2: rgba(242, 235, 221, 0.72);
-    --fg-3: rgba(242, 235, 221, 0.54);
-    --rule: rgba(242, 235, 221, 0.14);
-    --rule-strong: rgba(242, 235, 221, 0.4);
-    --accent: #C29462;
-    --field: #17120D;
-}
-.theme-deer .field select option { background: #17120D; color: #F2EBDD; }
-.theme-deer .door:hover { background: #1C1610; }
-.antlers .e-line { stroke-width: 1.4; }
-.opener__figure .label { width: min(100%, 340px); margin-inline: auto; }
-.opener__figure .label__emblem { width: 64px; margin-bottom: 16px; color: var(--ink); }
-.opener__figure .label__emblem .e-line { stroke-width: 3; }
-.age-gate__emblem .e-line { stroke-width: 2.6; }
-
-.age-gate {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    display: none;
-    place-items: center;
-    padding: var(--margin);
-    background: var(--ink);
-    text-align: center;
-}
-.gate-pending .age-gate { display: grid; }
-.gate-pending body { overflow: hidden; }
-.age-gate__box { max-width: 520px; }
-.age-gate__emblem { width: 96px; margin: 0 auto 30px; color: var(--accent); }
-.age-gate__title { font: 400 clamp(2.25rem, 4.4vw, 3.25rem)/1.05 var(--serif); color: var(--fg); }
-.age-gate__text { max-width: 40ch; margin: 18px auto 34px; color: var(--fg-2); }
-.age-gate__actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 16px 30px; }
-.age-gate__msg { margin-top: 26px; font: italic 400 1.125rem/1.5 var(--serif); color: var(--fg-2); }
-.age-gate__msg a { color: var(--fg); border-bottom: 1px solid var(--rule-strong); }
-
-.traits { margin-bottom: clamp(104px, 12vw, 176px); }
-.trait { align-items: baseline; padding-block: 10px; }
-.trait__word { grid-column: 1 / 8; font: 400 clamp(2.75rem, 6.5vw, 6rem)/1 var(--serif); letter-spacing: -0.02em; color: var(--fg); }
-.trait:nth-child(even) .trait__word { font-style: italic; }
-.trait__gloss { grid-column: 9 / 13; color: var(--fg-2); }
-
-.emblem { align-items: center; margin-bottom: clamp(104px, 12vw, 176px); }
-.emblem__text { grid-column: 1 / 6; }
-.emblem__text .standfirst { margin-top: 26px; }
-.emblem__text .note { margin-top: 22px; }
-.emblem__fig { grid-column: 7 / 13; }
-.emblem__plate { aspect-ratio: 1 / 1; }
-.emblem__plate > svg { top: 12%; left: 12%; width: 76%; height: 76%; }
-.emblem__lockup { position: absolute; left: 0; right: 0; bottom: 7%; text-align: center; }
-.emblem__lockup span { display: block; }
-.emblem__word { font: 500 clamp(0.875rem, 1.3vw, 1.125rem)/1 var(--serif); letter-spacing: 0.32em; text-transform: uppercase; padding-left: 0.32em; color: var(--fg); }
-.emblem__sub { margin-top: 8px; font: italic 400 0.9375rem var(--serif); color: var(--fg-2); }
-
 /* ---------------------------------------------------------------- about */
 .principles { row-gap: 56px; margin-bottom: clamp(104px, 12vw, 176px); }
 .principle { grid-column: span 4; }
@@ -411,7 +331,7 @@
 .principle p { max-width: 32ch; color: var(--fg-2); }
 
 .portfolio { row-gap: 40px; margin-bottom: clamp(104px, 12vw, 176px); }
-.portfolio__item { grid-column: span 6; display: block; }
+.portfolio__item { grid-column: span 4; display: block; }
 .portfolio__art { position: relative; display: block; aspect-ratio: 16 / 9; margin-bottom: 22px; background: var(--ink-raised); }
 .portfolio__art img { position: absolute; top: 12%; left: 12%; width: 76%; height: 76%; object-fit: contain; transition: transform 0.8s var(--ease); }
 .portfolio__item:hover .portfolio__art img { transform: scale(1.04); }
@@ -472,7 +392,6 @@
 
     .door { grid-column: 1 / -1; min-height: 260px; }
     .duo__item { grid-column: 1 / -1; }
-    .mini-index li { grid-column: span 6; }
     .opener__figure .globe { margin-inline: auto; }
     .opener__figure .caption { text-align: left; }
     .coffee__figure, .coffee__sheet { grid-column: 1 / -1; }
@@ -491,11 +410,6 @@
     .sheet__plan { aspect-ratio: 3 / 2; }
     .sheet__plan > svg { top: 8%; height: 84%; }
     .label-detail__text { margin-top: 48px; }
-
-    .trait__word, .trait__gloss { grid-column: 1 / -1; }
-    .trait__gloss { margin-top: 8px; }
-    .emblem__text, .emblem__fig { grid-column: 1 / -1; }
-    .emblem__fig { margin-top: 48px; }
 
     .principle, .portfolio__item { grid-column: 1 / -1; }
 }
