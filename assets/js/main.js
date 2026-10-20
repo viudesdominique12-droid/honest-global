@@ -81,9 +81,9 @@
         return { state: state, draw: draw, bottom: bottom + 2, target: target };
     }
 
-    /* Honest Oil container */
+    /* Honest Oil bottle, drawn after the client's photograph: the oil rises into the shoulder */
     function createBottle(el) {
-        var liq = createLiquid(el, { fill: '.b-fill', surface: '.b-surface', level: '.b-level' }, [40, 260, 120, 390, 150]);
+        var liq = createLiquid(el, { fill: '.b-fill', surface: '.b-surface', level: '.b-level' }, [40, 260, 92, 390, 104]);
         return {
             el: el,
             mode: el.getAttribute('data-bottle'),
@@ -462,13 +462,17 @@
         var q = b.q;
         var cap = b.one('.b-capgroup');
         var ridges = b.one('.b-ridges');
-        var spec = $$('[data-spec] > div');
+        var body = b.el.closest('.oil__body');
+        var spec = body ? $$('[data-spec] > div', body) : [];
+        // On the home page the drawing gives way to the photograph of the real bottle
+        var shot = b.el.parentNode.querySelector('.oil__shot:not(.oil__shot--still)');
 
         gsap.set(q('[pathLength]'), { strokeDasharray: 1, strokeDashoffset: 1 });
         gsap.set(q('.b-type, .b-letters'), { autoAlpha: 0 });
         gsap.set(ridges, { autoAlpha: 0, x: -10 });
         gsap.set(cap, { y: -9 });
         if (spec.length) gsap.set(spec, { autoAlpha: 0, y: 14 });
+        if (shot) gsap.set(shot, { autoAlpha: 0 });
         b.liquid.level = 392;
         b.liquid.amp = 2.4;
         b.draw();
@@ -485,7 +489,7 @@
             .to(q('.b-hatch path'), { strokeDashoffset: 0, duration: 0.7 }, 1.2)
             .to(q('.b-highlight'), { strokeDashoffset: 0, duration: 0.5 }, 1.3)
             .to(q('.b-panel, .b-inner'), { strokeDashoffset: 0, duration: 0.5, stagger: 0.1 }, 1.5)
-            .to(b.liquid, { level: 150, duration: 1.8, ease: 'power1.inOut' }, 1.9)
+            .to(b.liquid, { level: 104, duration: 1.8, ease: 'power1.inOut' }, 1.9)
             .to(q('.b-type'), { autoAlpha: 1, duration: 0.4 }, 2.5)
             .to(b.liquid, { amp: 0.9, duration: 0.8, ease: 'power1.out' }, 3.1)
             .to(cap, { y: 0, duration: 0.5, ease: 'power2.inOut' }, 3.4)
@@ -493,6 +497,7 @@
             .to(q('.b-callouts path'), { strokeDashoffset: 0, duration: 0.3, stagger: 0.1 }, 3.6)
             .to(q('.b-letters'), { autoAlpha: 1, duration: 0.3 }, 3.9);
         if (spec.length) tl.to(spec, { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.25, ease: 'power2.out' }, 2.1);
+        if (shot) tl.to(shot, { autoAlpha: 1, duration: 0.9, ease: 'power1.inOut' }, 4.5).to(b.el, { autoAlpha: 0, duration: 0.6 }, 4.8);
         return tl;
     }
 
@@ -687,7 +692,7 @@
                     animation: bottleTimeline(b),
                     trigger: body,
                     start: function () { return 'center center+=' + Math.round(headerH() / 2); },
-                    end: '+=160%',
+                    end: '+=200%',
                     pin: true,
                     scrub: 0.8,
                     anticipatePin: 1

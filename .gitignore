@@ -6,3 +6,6 @@ moodboard.html
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Original files sent by the client (the site uses the optimized copies in assets/images)
+WhatsApp Image *

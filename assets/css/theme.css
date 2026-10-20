@@ -397,6 +397,16 @@ body { background: var(--bg); color: var(--fg); }
 .bottle .b-panel { fill: var(--bg-2); }
 .bottle .b-fill { stroke: #D4A85A; stroke-opacity: 0.75; }
 .bottle .b-surface { stroke: #E2B969; }
+/* The client's photograph of the bottle: alone on the Honest Oil page, after the drawing on the home page */
+.oil__shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.motion .oil__shot:not(.oil__shot--still) { visibility: hidden; opacity: 0; }
+/* Desktop: the plate keeps the photograph's 5:6 shape within the viewport height, its caption under it */
+@media (min-width: 861px) {
+    .oil__figure { justify-self: center; width: min(100%, calc(min(68vh, 640px) * 5 / 6)); }
+}
+/* Three drawings of the same bottle side by side */
+.sheet--three .sheet__fig { grid-column: span 4; }
+.engraving .e-cover { fill: var(--bg-2); }
 .oil__photo { aspect-ratio: 16 / 9; max-height: 30vh; width: 100%; margin-bottom: clamp(28px, 3vw, 40px); overflow: hidden; background: var(--bg-2); }
 .oil__photo img { width: 100%; height: 100%; object-fit: cover; }
 .oil__text .display-l { margin-bottom: 26px; }
@@ -570,6 +580,7 @@ body { background: var(--bg); color: var(--fg); }
 }
 
 @media (max-width: 860px) {
+    .sheet--three .sheet__fig { grid-column: 1 / -1; }
     .faq__title, .faq__list { grid-column: 1 / -1; }
     .faq__title { position: static; margin-bottom: 14px; }
     .qa summary { padding: 18px 18px; font-size: 1rem; }
