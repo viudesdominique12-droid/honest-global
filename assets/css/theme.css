@@ -281,8 +281,15 @@ body { background: var(--bg); color: var(--fg); }
     pointer-events: none;
     background:
         linear-gradient(180deg, rgba(10, 15, 26, 0.42) 0%, rgba(10, 15, 26, 0) 22%),
-        linear-gradient(90deg, rgba(10, 15, 26, 0.5) 0%, rgba(10, 15, 26, 0.12) 50%, rgba(10, 15, 26, 0) 70%),
+        linear-gradient(90deg, rgba(10, 15, 26, 0.72) 0%, rgba(10, 15, 26, 0.34) 46%, rgba(10, 15, 26, 0) 70%),
         linear-gradient(0deg, rgba(10, 15, 26, 0.72) 0%, rgba(10, 15, 26, 0.2) 46%, rgba(10, 15, 26, 0) 64%);
+}
+@media (max-width: 860px) {
+    .hero__shade {
+        background:
+            linear-gradient(180deg, rgba(10, 15, 26, 0.42) 0%, rgba(10, 15, 26, 0) 18%),
+            linear-gradient(0deg, rgba(10, 15, 26, 0.88) 0%, rgba(10, 15, 26, 0.74) 46%, rgba(10, 15, 26, 0) 74%);
+    }
 }
 .hero__inner { position: absolute; left: 0; right: 0; bottom: clamp(56px, 9vh, 104px); }
 .hero__text { grid-column: 1 / 9; }
@@ -291,6 +298,7 @@ body { background: var(--bg); color: var(--fg); }
 .hero__title { font: 400 clamp(3rem, 8vw, 8.25rem)/0.95 var(--serif); letter-spacing: -0.025em; color: var(--fg); }
 .hero--page .hero__title { font-size: clamp(2.75rem, 6.2vw, 6.5rem); max-width: 14ch; }
 .hero__title em { color: var(--accent); }
+.hero__motto { margin-top: 18px; font: 400 clamp(1.25rem, 2.1vw, 1.875rem)/1.2 var(--serif); letter-spacing: -0.01em; color: var(--gold); }
 .hero__lead { max-width: 36ch; margin-top: 24px; font-size: clamp(1.0625rem, 1.3vw, 1.25rem); font-weight: 300; line-height: 1.55; color: var(--fg-2); }
 .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 30px; margin-top: 34px; }
 .hero__scroll {
@@ -323,6 +331,7 @@ body { background: var(--bg); color: var(--fg); }
 /* Before the opening plays, the hero and the masthead wait */
 .motion .hero__kicker,
 .motion .hero__title,
+.motion .hero__motto,
 .motion .hero__lead,
 .motion .hero__actions,
 .motion .hero__scroll,

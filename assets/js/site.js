@@ -28,7 +28,7 @@
         tl.fromTo($('.hero__media img', hero), { scale: 1.16 }, { scale: 1, duration: 2.6, ease: 'expo.out' }, 0)
             .set(title, { autoAlpha: 1 }, 0.1)
             .from(split.lines, { yPercent: 115, duration: 1.6, stagger: 0.12 }, 0.15)
-            .fromTo($$('.hero__kicker, .hero__lead, .hero__actions, .hero__scroll', hero), { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 1.3, stagger: 0.1 }, 0.45)
+            .fromTo($$('.hero__kicker, .hero__motto, .hero__lead, .hero__actions, .hero__scroll', hero), { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 1.3, stagger: 0.1 }, 0.45)
             // clearProps: a leftover transform would shrink the businesses menu to the width of the navigation
             .fromTo($$('.masthead__bar > *'), { autoAlpha: 0, y: -8 }, { autoAlpha: 1, y: 0, duration: 1.1, stagger: 0.08, clearProps: 'transform' }, 0.6);
         return tl;

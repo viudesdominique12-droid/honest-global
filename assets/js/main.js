@@ -370,7 +370,7 @@
         function matches(s) {
             if (!query) return true;
             if (norm(s.name).indexOf(query) > -1) return true;
-            return s.items.some(function (it) { return norm(it).indexOf(query) > -1; });
+            return s.items.concat(s.keywords || []).some(function (it) { return norm(it).indexOf(query) > -1; });
         }
         input.addEventListener('input', function () {
             query = norm(input.value.trim());
